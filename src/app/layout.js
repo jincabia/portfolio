@@ -23,13 +23,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased
-        bg-[#3C3D37] flex font-sans
+        bg-[#3C3D37] flex font-sans 
 
         
         `}
       >
         <VerticalNavBar />
-        <main className="flex-1 p-5  min-h-screen">{children}</main>
+        <main className="flex-1 p-5  min-h-screen ml-44">{children}</main>
       </body>
     </html>
   );

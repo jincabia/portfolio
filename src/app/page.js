@@ -1,16 +1,14 @@
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import EmailIcon from '@mui/icons-material/Email';
-import { GitHub } from '@mui/icons-material';
+
 
 export default function Home() {
   return (
-    <main className=" pt-14 snap-mandatory snap-y">
+    <main id='about' className=" pt-14">
 
     
-    {/* Landing about me thingy */}
-    <div className="flex justify-evenly">
+    {/* About me thingy */}
+    <div  className="flex justify-evenly">
 
           <div className="w-1/3">
             <h1 className="text-3xl font-bold">Jin Francis Cabia</h1>
@@ -76,7 +74,7 @@ export default function Home() {
 
 
     {/* Projects */}
-    <div className="flex justify-evenly pt-14">
+    <div id='projects' className="flex justify-evenly pt-20 ">
 
       <div className="w-1/3">
         <h1 className="text-3xl font-bold">Projects</h1>
