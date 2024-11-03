@@ -3,7 +3,6 @@ import Link from 'next/link';
 const VerticalNavBar = () => {
 
   const navItems = [
-    { name: 'Home'},
     { name: 'About' },
     { name: 'Projects' },
     { name: 'Contact' },
