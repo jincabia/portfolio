@@ -28,8 +28,8 @@ export default function RootLayout({ children }) {
         
         `}
       >
-        <VerticalNavBar />
-        <main className="flex-1 p-5  min-h-screen ml-44">{children}</main>
+        <VerticalNavBar  />
+        <main className="flex-1 p-5  min-h-screen sm:ml-0 lg:ml-44">{children}</main>
       </body>
     </html>
   );
