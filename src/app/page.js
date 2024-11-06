@@ -81,7 +81,7 @@ export default function Home() {
             <p className="text-white/[.75] font-semibold text-sm " >Recent Software Graduate</p>
            
             <p className="flex items-center text-[#ECDFCC]/60 text-sm md:pt-4">
-              I think coding's cool.
+              I think codings cool.
             </p>
 
         
