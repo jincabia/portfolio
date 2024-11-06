@@ -76,7 +76,7 @@ export default function Home() {
     <div  className="md:flex md:justify-evenly pb-16 md:pt-16  " ref={aboutRef}>
 
         {/* Intro  */}
-          <div className="sm:w-full md:w-1/3 p-4 opacity-0 translate-x-[-20px] animate-slide-in ">
+          <div className={`sm:w-full md:w-1/3 p-4 opacity-0 ${aboutInView ? 'translate-x-[-20px] animate-slide-in' : ''} `}>
             <h1 className="text-3xl font-bold   ">Jin Francis Cabia</h1>
             <p className="text-white/[.75] font-semibold text-sm " >Recent Software Graduate</p>
            
@@ -127,7 +127,7 @@ export default function Home() {
                     
 
           ">
-            <div className='opacity-0 animate-breath  '>
+            <div className={`   ${aboutInView ? 'opacity-0 animate-breath' : ''}`}>
 
               <p>
               Growing up, I developed a passion for technology and programming through gaming with my brother. When I was 13  
@@ -171,7 +171,7 @@ export default function Home() {
       {/* Projects */}
       <div id='projects' ref={projectsRef} className={`md:flex md:justify-evenly mb-96  mt-48  md:pt-16`}>
 
-        <div className={`pl-4   md:w-1/3  ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
+        <div className={`pl-4   md:w-1/3 opacity-0  ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
           <h1 className={`text-3xl font-bold  `}>Projects</h1>
 
           <p className="flex items-center text-[#ECDFCC]/60 text-sm ">
@@ -211,9 +211,9 @@ export default function Home() {
 
       {/* Contact */}
       
-      <div id='contact' ref={contactRef} className="md:flex md:justify-evenly my-96  ">
+      <div id='contact' ref={contactRef} className="md:flex md:justify-evenly my-44  ">
 
-        <div className={`pl-4   md:w-1/3  ${contactInView ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
+        <div className={`pl-4 opacity-0   md:w-1/3  ${contactInView ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
           <h1 className="text-3xl font-bold">Contact</h1>
         </div>
 
@@ -289,6 +289,12 @@ export default function Home() {
 
 
       {/* Footer  */}
+      <footer className='w-1/2 mx-auto mb-16 text-sm text-white/[.4]'> 
+
+       
+        <p>Made by Jin, built with Next.js, Tailwind CSS and deployed using Vercel</p>
+
+      </footer>
 
       
     </main>

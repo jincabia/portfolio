@@ -15,9 +15,9 @@ const VerticalNavBar = ({ activeSection }) => {
   ];
 
   return (
-    <div className="hidden lg:flex fixed top-0 left-0 flex-col h-screen w-44 bg-[#373832] text-white pt-5">
-      <h2 className="text-xl font-semibold mb-4 pl-2">My Portfolio</h2>
-      <ul>
+    <div className="hidden lg:flex fixed top-0 left-0 flex-col h-screen  w-44 bg-[#373832] text-white   ">
+      {/* <h2 className="text-xl font-semibold mb-4 pl-2">My Portfolio</h2> */}
+      <ul className="flex flex-col justify-center items-start space-y-2 h-full translate-y-[-20px]">
         {navItems.map((item) => (
           <li key={item.name} className="w-full font-semibold">
             <a href={item.path}>
