@@ -9,27 +9,39 @@ import { useInView } from 'react-intersection-observer';
 
 import Project from './components/project';
 
+
 import VerticalNavBar from "./components/navbar";
-import { scrollToTop } from 'react-scroll/modules/mixins/animate-scroll';
 
 
 export default function Home() {
 
   
-  const { ref: aboutRef, inView: aboutInView } = useInView();
+  const { ref: aboutRef, inView: aboutInView } = useInView({ triggerOnce: true });
   
-  const {ref:projectsRef, inView : projectIsVisable} = useInView({ triggerOnce: false });
+  const {ref:projectsRef, inView : projectIsVisable} = useInView({ triggerOnce: true });
   
-  const { ref: contactRef, inView: contactInView } = useInView({ triggerOnce: false });
+  const { ref: contactRef, inView: contactInView } = useInView({ triggerOnce: true });
+
+
+  // These are ones that dont have an animation
+  const { ref: aboutRefNO, inView: aboutInViewNO } = useInView();
+  const {ref:projectsRefNO, inView : projectIsVisableNO} = useInView();
+  const { ref: contactRefNO, inView: contactInViewNO } = useInView();
+
 
   const [activeSection, setActiveSection] = useState('about');
 
   useEffect(() => {
     console.log('prior active', {activeSection})
-    if (aboutInView) setActiveSection('about');
-    if (contactInView) setActiveSection('contact');
-    else if (projectIsVisable) setActiveSection('projects');
-  }, [aboutInView, projectIsVisable, contactInView]);
+    if (aboutInViewNO) setActiveSection('about');
+    // if (aboutInView) setActiveSection('about');
+    if (contactInViewNO) setActiveSection('contact');
+    // if (contactInView) setActiveSection('contact');
+     if (projectIsVisableNO) setActiveSection('projects');
+    // else if (projectIsVisableNO) setActiveSection('projects');
+  }, [aboutInViewNO, projectIsVisableNO, contactInViewNO]);
+
+  const intro = ['Hello,','Im']
 
 
   
@@ -64,6 +76,8 @@ export default function Home() {
     github:"https://github.com/jincabia/AI-Web-Scraper"
   }
 
+
+
 ]
 
   return (
@@ -73,10 +87,31 @@ export default function Home() {
 
     
     {/* About me + Intro */}
-    <div  className="md:flex md:justify-evenly pb-16 md:pt-16  " ref={aboutRef}>
+    <div  className="md:flex md:justify-evenly pb-16 md:pt-16  " ref={aboutRefNO}>
 
         {/* Intro  */}
-          <div className={`sm:w-full md:w-1/3 p-4 opacity-0 ${aboutInView ? 'translate-x-[-20px] animate-slide-in' : ''} `}>
+
+        <div 
+        ref={aboutRef}
+        
+          className={`  sm:w-full md:w-1/3 p-4 `}>
+
+          <p className={` font-bold text-yellow-200 text-sm md:pt-4 ${aboutInView ? '' : ''}
+          `}>
+              {intro.map((word, index) => (
+                <span
+                  key={index}
+                  className="inline-block animate-slide-down opacity-0"
+                  style={{ animationDelay: `${index * 0.3}s` }} 
+                >
+                  {word}&nbsp; {/* Adding space between words */}
+                </span>
+              ))}
+          </p>
+
+          <div
+           style={{ animationDelay: `${.6}s` }}
+          className={` opacity-0 ${aboutInView ? 'translate-x-[-20px] animate-slide-in' : ''} `}>
             <h1 className="text-3xl font-bold   ">Jin Francis Cabia</h1>
             <p className="text-white/[.75] font-semibold text-sm " >Recent Software Graduate</p>
            
@@ -120,14 +155,17 @@ export default function Home() {
 
           </div>
 
+        </div>
+
         {/* About me */}
           <div className="
           w-full md:w-1/2 space-y-4 text-[#ECDFCC]/[.6] text-sm hover:scale-105 hover:bg-gray-500/[0.1]  p-4 rounded-md 
           ease-in-out duration-300
-                    
 
           ">
-            <div className={`   ${aboutInView ? 'opacity-0 animate-breath' : ''}`}>
+            <div 
+            style={{ animationDelay: `${1.3}s` }}
+            className={`  opacity-0 ${aboutInView ? ' animate-breath' : ''}`}>
 
               <p>
               Growing up, I developed a passion for technology and programming through gaming with my brother. When I was 13  
@@ -169,16 +207,17 @@ export default function Home() {
    
 
       {/* Projects */}
-      <div id='projects' ref={projectsRef} className={`md:flex md:justify-evenly mb-96  mt-48  md:pt-16`}>
+      <div id='projects' ref={projectsRefNO} className={`md:flex md:justify-evenly mb-96  mt-48  md:pt-16`}>
 
-        <div className={`pl-4   md:w-1/3 opacity-0  ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
+        <div 
+        ref={projectsRef}
+        // style={{ animationDelay: `${0.2}s` }}
+        className={`pl-4   md:w-1/3 opacity-0  ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
           <h1 className={`text-3xl font-bold  `}>Projects</h1>
 
           <p className="flex items-center text-[#ECDFCC]/60 text-sm ">
               Any feedback is appreciated!
-            </p>
-
-          {/* EMAIL BUTTON HERE */}
+          </p>
 
 
           <div className=' rounded-md  w-max '>
@@ -194,11 +233,14 @@ export default function Home() {
 
         </div>
 
-        <div className={`md:w-1/2 opacity-0 ${projectIsVisable  ? '  animate-breath ' : 'opacity-100'  }`} >
+        <div className={`md:w-1/2 `} >
           <ul className='space-y-4'>
             {projects.map((project,index)=>
             (
-              <li className='list-none ' key={index}>
+              <li className={`list-none  opacity-0 ${projectIsVisable  ? '  animate-breath ' : ''  }`} key={index}
+              style={{ animationDelay: `${1 * index + .5}s` }} 
+
+              >
                 <Project
                 {...project}
                 />
@@ -211,9 +253,9 @@ export default function Home() {
 
       {/* Contact */}
       
-      <div id='contact' ref={contactRef} className="md:flex md:justify-evenly my-44  ">
+      <div id='contact' ref={contactRefNO} className="md:flex md:justify-evenly my-44  ">
 
-        <div className={`pl-4 opacity-0   md:w-1/3  ${contactInView ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
+        <div ref={contactRef} className={`pl-4 opacity-0   md:w-1/3  ${contactInView ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
           <h1 className="text-3xl font-bold">Contact</h1>
         </div>
 
