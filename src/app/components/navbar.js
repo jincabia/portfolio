@@ -1,34 +1,32 @@
 'use client'
-import { useState } from 'react';
+import React from 'react';
 import { usePathname } from 'next/navigation'
- 
-const VerticalNavBar = () => {
-
-  const [path,setPath] = useState(usePathname())
 
 
-    const navItems = [
-        { name: 'About', path: '#about' },
-        { name: 'Projects', path: '#projects' },
-        { name: 'Contact', path: '#contact' },
-      ];
+const VerticalNavBar = ({ activeSection }) => {
+
+  // const [path,setPath] = useState(usePathname())
 
 
-    
-
-   
+  const navItems = [
+    { name: 'About', path: '#about', section: 'about' },
+    { name: 'Projects', path: '#projects', section: 'projects' },
+    { name: 'Contact', path: '#contact', section: 'contact' },
+  ];
 
   return (
-    <div className="hidden  lg:flex fixed top-0 left-0  flex-col h-screen w-44 bg-[#373832]  text-white pt-5  ">
+    <div className="hidden lg:flex fixed top-0 left-0 flex-col h-screen w-44 bg-[#373832] text-white pt-5">
       <h2 className="text-xl font-semibold mb-4 pl-2">My Portfolio</h2>
-      <ul className="">
-        
+      <ul>
         {navItems.map((item) => (
           <li key={item.name} className="w-full font-semibold">
-            <a href={item.path} >
-              <p onClick={()=>setPath(item.path)} className={`hover:translate-x-4 hover:underline hover:text-white text-white/[.5] w-full py-2  pl-6 transition ease-in ${
-                path === item.path ? ('text-white/[1] translate-x-4 ') : 'translate-x-0'
-              }`}>
+            <a href={item.path}>
+              <p className={`w-full py-2 pl-6 transition ease-in ${
+                activeSection === item.section
+                  ? 'text-white/[1] translate-x-4 '
+                  : 'text-white/[0.5] hover:translate-x-4 hover:underline'
+              }`
+      }>
                 {item.name}
               </p>
             </a>
@@ -40,3 +38,8 @@ const VerticalNavBar = () => {
 };
 
 export default VerticalNavBar;
+
+
+
+
+

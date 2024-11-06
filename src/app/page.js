@@ -1,10 +1,51 @@
+'use client'
+import { useState, useEffect,useRef } from 'react';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import EmailIcon from '@mui/icons-material/Email';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+
+import { useInView } from 'react-intersection-observer';
 
 import Project from './components/project';
 
+import VerticalNavBar from "./components/navbar";
+import { scrollToTop } from 'react-scroll/modules/mixins/animate-scroll';
+
 
 export default function Home() {
+
+  
+  const { ref: aboutRef, inView: aboutInView } = useInView();
+  
+  const {ref:projectsRef, inView : projectIsVisable} = useInView({ triggerOnce: false });
+  
+  const { ref: contactRef, inView: contactInView } = useInView({ triggerOnce: false });
+
+  const [activeSection, setActiveSection] = useState('about');
+
+  useEffect(() => {
+    console.log('prior active', {activeSection})
+    if (aboutInView) setActiveSection('about');
+    if (contactInView) setActiveSection('contact');
+    else if (projectIsVisable) setActiveSection('projects');
+  }, [aboutInView, projectIsVisable, contactInView]);
+
+
+  
+
+  
+    useEffect(() => {
+      scrollToTop();
+    }, []);
+  
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        // behavior: 'smooth',
+      });
+    };
+
 
   const projects = [{
     name: "Gong Cha Shawnessy Web App",
@@ -26,11 +67,13 @@ export default function Home() {
 ]
 
   return (
-    <main id='about' className=" pt-14 ">
+    <main id='about' className=" pt-14 snap-mandatory snap-y h-screen  ">
+
+    <VerticalNavBar activeSection={activeSection}/>
 
     
     {/* About me + Intro */}
-    <div  className="md:flex md:justify-evenly pb-16 ">
+    <div  className="md:flex md:justify-evenly pb-16 md:pt-16  " ref={aboutRef}>
 
         {/* Intro  */}
           <div className="sm:w-full md:w-1/3 p-4 opacity-0 translate-x-[-20px] animate-slide-in ">
@@ -43,14 +86,22 @@ export default function Home() {
 
         
             {/* Links to Github,  Linkedin */}
-            <div className='flex  pt-4 space-x-2 mt-4 border-t border-white/[0.5]'>
+            <div className='flex  pt-4 space-x-2 mt-4 border-t border-white/[0.5] text-white/[.5] '>
+
+              <a href='mailto:jinfcabia@gmail.com' 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              >
+                <EmailIcon  className='hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-white rounded-md '/>
+              
+              </a>
 
               <a
               href="https://www.linkedin.com/in/jin-francis-cabia/" 
               target="_blank" 
               rel="noopener noreferrer" 
               >
-              <LinkedInIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out '/>
+                <LinkedInIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-white  '/>
               </a>
 
 
@@ -60,52 +111,56 @@ export default function Home() {
               rel="noopener noreferrer" 
               >
 
-              <GitHubIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out'/>
+              <GitHubIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-white '/>
               </a>
 
-            
+
+
             </div>
 
           </div>
 
         {/* About me */}
           <div className="
-          sm:w-full md:w-1/2 space-y-4 text-[#ECDFCC]/[.6] text-sm hover:bg-gray-500/[0.1] 
-          hover:scale-105 p-4 rounded-md transition 
+          w-full md:w-1/2 space-y-4 text-[#ECDFCC]/[.6] text-sm hover:scale-105 hover:bg-gray-500/[0.1]  p-4 rounded-md 
           ease-in-out duration-300
-          opacity-0 animate-breath  
+                    
+
           ">
-            <p>
-            Growing up, I developed a passion for technology and programming through gaming with my brother. When I was 13  
-            <strong className='text-white/[.75]'>
-            
-            , I began exploring Scratch
-            </strong>
-            
-              , a block-based programming language, 
-            which ignited my interest in software development.
-            </p>
+            <div className='opacity-0 animate-breath  '>
 
-            <p>
-            To deepen my skills, <strong className="text-white/[0.75]"> I pursued a computer science course in Grades 10, 11, and 12</strong>  where it taught me the 
-            fundamentals of programming in <strong  className="text-white/[0.75]"> 
-            C#, Python HTML, CSS and JavaScript 
-            </strong> 
-            , I then joined the <strong className="text-white/[0.75]"> Schulich Ignite </strong> 
-            extracurricular program, where I gained hands-on experience with game development in Python using Pygame.
-            </p>
+              <p>
+              Growing up, I developed a passion for technology and programming through gaming with my brother. When I was 13  
+              <strong className='text-white/[.75]'>
+              
+              , I began exploring Scratch
+              </strong>
+              
+                , a block-based programming language, 
+              which ignited my interest in software development.
+              </p>
 
-            <p>
-            Currently, I have just finished my studies in Software Development at SAIT,
-            there I developed my capstone project being a progressive web app for
-             <strong className="text-white/[0.75] underline transition duration-300 ease-in-out hover:text-yellow-200 ">
-              <a className='cursor-pointer' href='https://gongcha-shawnessy.vercel.app/' target="_blank" 
-              rel="noopener noreferrer" > Gong Cha Shawnessy</a> </strong>  where we virtualized the menu.
-            After completing the two year Diploma Im eager to apply my knowledge in a real-world setting and am 
-            <strong className="text-white/[0.75]"> actively seeking internships or software development roles </strong>
-            to 
-            jumpstart my career. Im passionate about learning, driven to expand my skills and open to any developer roles.
-            </p>
+              <p>
+              To deepen my skills, <strong className="text-white/[0.75]"> I pursued a computer science course in Grades 10, 11, and 12</strong>  where it taught me the 
+              fundamentals of programming in <strong  className="text-white/[0.75]"> 
+              C#, Python HTML, CSS and JavaScript 
+              </strong> 
+              , I then joined the <strong className="text-white/[0.75]"> Schulich Ignite </strong> 
+              extracurricular program, where I gained hands-on experience with game development in Python using Pygame.
+              </p>
+
+              <p>
+              Currently, I have just finished my studies in Software Development at SAIT,
+              there I developed my capstone project being a progressive web app for
+              <strong className="text-white/[0.75] underline transition duration-300 ease-in-out hover:text-yellow-200 ">
+                <a className='cursor-pointer' href='https://gongcha-shawnessy.vercel.app/' target="_blank" 
+                rel="noopener noreferrer" > Gong Cha Shawnessy</a> </strong>  where we virtualized the menu.
+              After completing the two year Diploma Im eager to apply my knowledge in a real-world setting and am 
+              <strong className="text-white/[0.75]"> actively seeking internships or software development roles </strong>
+              to 
+              jumpstart my career. Im passionate about learning, driven to expand my skills and open to any developer roles.
+              </p>
+            </div>
           </div>
 
     </div>
@@ -114,13 +169,32 @@ export default function Home() {
    
 
       {/* Projects */}
-      <div id='projects' className="md:flex md:justify-evenly py-16 ">
+      <div id='projects' ref={projectsRef} className={`md:flex md:justify-evenly mb-96  mt-48  md:pt-16`}>
 
-        <div className="pl-4   md:w-1/3 ">
-          <h1 className="text-3xl font-bold">Projects</h1>
+        <div className={`pl-4   md:w-1/3  ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
+          <h1 className={`text-3xl font-bold  `}>Projects</h1>
+
+          <p className="flex items-center text-[#ECDFCC]/60 text-sm ">
+              Any feedback is appreciated!
+            </p>
+
+          {/* EMAIL BUTTON HERE */}
+
+
+          <div className=' rounded-md  w-max '>
+          <a href='mailto:jinfcabia@gmail.com' 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              >
+                <EmailIcon  className='hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-white rounded-md '/>
+              
+              </a>
+
+          </div>
+
         </div>
 
-        <div className="md:w-1/2">
+        <div className={`md:w-1/2 opacity-0 ${projectIsVisable  ? '  animate-breath ' : 'opacity-100'  }`} >
           <ul className='space-y-4'>
             {projects.map((project,index)=>
             (
@@ -137,20 +211,87 @@ export default function Home() {
 
       {/* Contact */}
       
-      <div id='contact' className="md:flex md:justify-evenly pb-16 ">
+      <div id='contact' ref={contactRef} className="md:flex md:justify-evenly my-96  ">
 
-        <div className="pl-4   md:w-1/3 ">
+        <div className={`pl-4   md:w-1/3  ${contactInView ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
           <h1 className="text-3xl font-bold">Contact</h1>
         </div>
 
-        <div className="md:w-1/2 pl-4">
-         <h2>Send me a message b(utton for email)</h2>
-         <p>Resume</p>
+
+        <div className="md:w-1/2 pl-4 py-4
+        rounded-md
+         hover:bg-gray-500/[0.1] 
+          hover:scale-105
+           transition ease-in-out 
+           duration-300  
+           group
+           ">
+
+          <div className={` opacity-0${contactInView  ? '  animate-breath ' : 'opacity-100'  }`}>
+            <h1 className='font-semibold text-white/[.8] text-lg w-fit'>
+
+              <a href='mailto:jinfcabia@gmail.com' 
+                target="_blank" 
+                rel="noopener noreferrer" 
+              >
+
+              Get in touch, and drop a message.
+              <KeyboardArrowRightIcon fontSize="small" className="group-hover:translate-x-8 transition ease-in-out duration-300"/>
+
+              </a>
+
+            </h1>
+
+            <p className='text-[#ECDFCC]/[.6] text-sm'>I am currently open for any new opportunities! </p>
+
+            <div className='flex  pt-4 space-x-2 mt-4 border-t border-white/[0.5] text-white/[.5] '>
+
+                <a href='mailto:jinfcabia@gmail.com' 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                >
+                  <EmailIcon  className='hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-white rounded-md '/>
+                 
+                </a>
+
+                <a
+                href="https://www.linkedin.com/in/jin-francis-cabia/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                >
+                  <LinkedInIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-white  '/>
+                </a>
+
+
+                <a
+                href="https://github.com/jincabia" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                >
+
+                <GitHubIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-white '/>
+                </a>
+
+
+
+            </div>
+
+         
+
+          </div>
+
+          
+          
+        
         </div>
           
       </div>
+
+
+      {/* Footer  */}
 
       
     </main>
   );
 }
+
