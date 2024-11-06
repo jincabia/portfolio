@@ -94,15 +94,15 @@ export default function Home() {
         <div 
         ref={aboutRef}
         
-          className={`  sm:w-full md:w-1/3 p-4 `}>
+          className={`  sm:w-full md:w-1/3 p-4 pt-0`}>
 
-          <p className={` font-bold text-yellow-200 text-sm md:pt-4 ${aboutInView ? '' : ''}
+          <p className={` font-bold text-yellow-200 text-sm  ${aboutInView ? '' : ''}
           `}>
               {intro.map((word, index) => (
                 <span
                   key={index}
                   className="inline-block animate-slide-down opacity-0"
-                  style={{ animationDelay: `${index * 0.3}s` }} 
+                  style={{ animationDelay: `${index * 0.4}s` }} 
                 >
                   {word}&nbsp; {/* Adding space between words */}
                 </span>
@@ -120,15 +120,21 @@ export default function Home() {
             </p>
 
         
-            {/* Links to Github,  Linkedin */}
-            <div className='flex  pt-4 space-x-2 mt-4 border-t border-white/[0.5] text-white/[.5] '>
+            {/* Links to Email, Github,  Linkedin */}
+            <div className={`flex  pt-4 space-x-2 mt-4 border-t border-white/[0.5] text-white/[.5]
+              ${aboutInView ? '' : ''}
+              `}>
 
               <a href='mailto:jinfcabia@gmail.com' 
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <EmailIcon  className='hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-white rounded-md '/>
+                <EmailIcon  className='hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-white rounded-md animate-slide-down opacity-0'
+                
+                                style={{ animationDelay: `${0.9}s` }} 
+                />
               
+
               </a>
 
               <a
@@ -136,7 +142,11 @@ export default function Home() {
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <LinkedInIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-white  '/>
+                <LinkedInIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-white animate-slide-down opacity-0  '
+                
+                                style={{ animationDelay: `${1.2}s` }} 
+                />
+
               </a>
 
 
@@ -146,7 +156,11 @@ export default function Home() {
               rel="noopener noreferrer" 
               >
 
-              <GitHubIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-white '/>
+              <GitHubIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-white animate-slide-down opacity-0 '
+              
+                                style={{ animationDelay: `${1.5}s` }} 
+              />
+
               </a>
 
 
@@ -159,8 +173,8 @@ export default function Home() {
 
         {/* About me */}
           <div className="
-          w-full md:w-1/2 space-y-4 text-[#ECDFCC]/[.6] text-sm hover:scale-105 hover:bg-gray-500/[0.1]  p-4 rounded-md 
-          ease-in-out duration-300
+          w-full md:w-1/2  text-[#ECDFCC]/[.6] text-sm hover:scale-105 hover:bg-gray-500/[0.1]  pt-0 p-4 rounded-md 
+          ease-in-out duration-300 hover:pt-4
 
           ">
             <div 
@@ -168,10 +182,10 @@ export default function Home() {
             className={`  opacity-0 ${aboutInView ? ' animate-breath' : ''}`}>
 
               <p>
-              Growing up, I developed a passion for technology and programming through gaming with my brother. When I was 13  
-              <strong className='text-white/[.75]'>
+              Growing up, I developed a passion for technology and programming through gaming with my brother.&nbsp; 
+              <strong className='text-yellow-200/[.8]'>
               
-              , I began exploring Scratch
+              When I was 13  , I began exploring Scratch
               </strong>
               
                 , a block-based programming language, 
@@ -179,22 +193,20 @@ export default function Home() {
               </p>
 
               <p>
-              To deepen my skills, <strong className="text-white/[0.75]"> I pursued a computer science course in Grades 10, 11, and 12</strong>  where it taught me the 
-              fundamentals of programming in <strong  className="text-white/[0.75]"> 
+              To deepen my skills, <strong className="text-yellow-200/[.8]"> I pursued a computer science course in Grades 10, 11, and 12</strong>  where it taught me the 
+              fundamentals of programming in <strong  className="text-yellow-200/[.8]"> 
               C#, Python HTML, CSS and JavaScript 
               </strong> 
-              , I then joined the <strong className="text-white/[0.75]"> Schulich Ignite </strong> 
+              , I then joined the <strong className="text-yellow-200/[.8]"> Schulich Ignite </strong> 
               extracurricular program, where I gained hands-on experience with game development in Python using Pygame.
               </p>
 
               <p>
-              Currently, I have just finished my studies in Software Development at SAIT,
+              Currently, I have just finished my studies in <strong className='text-yellow-200/[.8]'>Software Development at SAIT, </strong>
               there I developed my capstone project being a progressive web app for
-              <strong className="text-white/[0.75] underline transition duration-300 ease-in-out hover:text-yellow-200 ">
-                <a className='cursor-pointer' href='https://gongcha-shawnessy.vercel.app/' target="_blank" 
-                rel="noopener noreferrer" > Gong Cha Shawnessy</a> </strong>  where we virtualized the menu.
-              After completing the two year Diploma Im eager to apply my knowledge in a real-world setting and am 
-              <strong className="text-white/[0.75]"> actively seeking internships or software development roles </strong>
+              Gong Cha Shawnessy  where we virtualized the menu.
+              After completing the two year Diploma I am eager to apply my knowledge in a real-world setting and&nbsp;
+              <strong className="text-yellow-200"> I am actively seeking internships or software development roles </strong>
               to 
               jumpstart my career. Im passionate about learning, driven to expand my skills and open to any developer roles.
               </p>
@@ -212,7 +224,7 @@ export default function Home() {
         <div 
         ref={projectsRef}
         // style={{ animationDelay: `${0.2}s` }}
-        className={`pl-4   md:w-1/3 opacity-0  ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
+        className={`pl-4  pt-4  md:w-1/3 opacity-0  ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
           <h1 className={`text-3xl font-bold  `}>Projects</h1>
 
           <p className="flex items-center text-[#ECDFCC]/60 text-sm ">
@@ -225,7 +237,10 @@ export default function Home() {
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <EmailIcon  className='hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-white rounded-md '/>
+                <EmailIcon  className={`hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-white rounded-md ${projectIsVisable ? 'animate-slide-down' : ''} opacity-0`}
+                
+                style={{ animationDelay: `${0.3}s` }} 
+/>
               
               </a>
 
@@ -238,7 +253,7 @@ export default function Home() {
             {projects.map((project,index)=>
             (
               <li className={`list-none  opacity-0 ${projectIsVisable  ? '  animate-breath ' : ''  }`} key={index}
-              style={{ animationDelay: `${1 * index + .5}s` }} 
+              style={{ animationDelay: `${index + .5}s` }} 
 
               >
                 <Project
@@ -255,22 +270,23 @@ export default function Home() {
       
       <div id='contact' ref={contactRefNO} className="md:flex md:justify-evenly my-44  ">
 
-        <div ref={contactRef} className={`pl-4 opacity-0   md:w-1/3  ${contactInView ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
+        <div ref={contactRef} className={`pl-4 opacity-0   md:w-1/3   ${contactInView ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
           <h1 className="text-3xl font-bold">Contact</h1>
         </div>
 
 
-        <div className="md:w-1/2 pl-4 py-4
+        <div className="md:w-1/2 pl-4 
         rounded-md
          hover:bg-gray-500/[0.1] 
-          hover:scale-105
-           transition ease-in-out 
+           ease-in-out 
            duration-300  
            group
+
+           hover:py-4
            ">
 
           <div className={` opacity-0${contactInView  ? '  animate-breath ' : 'opacity-100'  }`}>
-            <h1 className='font-semibold text-white/[.8] text-lg w-fit'>
+            <h1 className='font-semibold text-white/[.8] text-lg w-fit '>
 
               <a href='mailto:jinfcabia@gmail.com' 
                 target="_blank" 
@@ -286,33 +302,48 @@ export default function Home() {
 
             <p className='text-[#ECDFCC]/[.6] text-sm'>I am currently open for any new opportunities! </p>
 
-            <div className='flex  pt-4 space-x-2 mt-4 border-t border-white/[0.5] text-white/[.5] '>
+             {/* Links to Email, Github,  Linkedin */}
+             <div className={`flex  pt-4 space-x-2 mt-4 border-t border-white/[0.5] text-white/[.5]
+              ${aboutInView ? '' : ''}
+              `}>
 
-                <a href='mailto:jinfcabia@gmail.com' 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                >
-                  <EmailIcon  className='hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-white rounded-md '/>
-                 
-                </a>
+              <a href='mailto:jinfcabia@gmail.com' 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              >
+                <EmailIcon  className={`hover:scale-125  opacity-0 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-white rounded-md  ${contactInView ? 'animate-slide-down' : ''} `}
+                
+                                style={{ animationDelay: `${1.2}s` }} 
+                />
+              
 
-                <a
-                href="https://www.linkedin.com/in/jin-francis-cabia/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                >
-                  <LinkedInIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-white  '/>
-                </a>
+              </a>
+
+              <a
+              href="https://www.linkedin.com/in/jin-francis-cabia/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              >
+                <LinkedInIcon  className={`hover:scale-125  opacity-0 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-white rounded-md  ${contactInView ? 'animate-slide-down' : ''} `}
+                
+                                style={{ animationDelay: `${1.5}s` }} 
+                />
+
+              </a>
 
 
-                <a
-                href="https://github.com/jincabia" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                >
+              <a
+              href="https://github.com/jincabia" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              >
 
-                <GitHubIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-white '/>
-                </a>
+              <GitHubIcon  className={`hover:scale-125  opacity-0 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-white rounded-md  ${contactInView ? 'animate-slide-down' : ''} `}
+                
+                                style={{ animationDelay: `${1.8}s` }}  
+              />
+
+              </a>
 
 
 
