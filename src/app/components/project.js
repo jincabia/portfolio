@@ -7,6 +7,8 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 export default function Project({name,date,description,path,link,github})
 
+// TODO Add what languages are being used
+
 {
     return(
         <div className="text-[#ECDFCC]/[.6] text-sm p-4 hover:scale-105 cursor-pointer hover:bg-gray-500/[.1] transition ease-in-out duration-300 rounded-md group  ">
@@ -25,9 +27,9 @@ export default function Project({name,date,description,path,link,github})
 
 
                 
-
+                {/* text-white/[.8] */}
                     {/* Name */}
-                    <div className="col-span-2 font-semibold text-white/[.8] text-lg  ">
+                    <div className="col-span-2 font-semibold text-yellow-200 text-lg  ">
                         {name}
 
                         <KeyboardArrowRightIcon fontSize="small" className="group-hover:translate-x-8 transition ease-in-out duration-300"/>
@@ -66,7 +68,7 @@ export default function Project({name,date,description,path,link,github})
 
             {link && <>
 
-                <div className="hover:text-white hover:scale-125 hover:cursor-pointer transition ease-in-out  w-min">
+                <div className="hover:text-yellow-200 hover:scale-125 hover:cursor-pointer transition ease-in-out  w-min">
 
                 <a href={`${link}`}
                  target="_blank" 
@@ -82,7 +84,7 @@ export default function Project({name,date,description,path,link,github})
             </>}
 
 
-                <div className="hover:text-white hover:scale-125 hover:cursor-pointer transition ease-in-out  w-min">
+                <div className="hover:text-yellow-200 hover:scale-125 hover:cursor-pointer transition ease-in-out  w-min">
 
                     <a
                      href={`${github}`

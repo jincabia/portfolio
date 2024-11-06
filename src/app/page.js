@@ -129,7 +129,7 @@ export default function Home() {
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <EmailIcon  className='hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-white rounded-md animate-slide-down opacity-0'
+                <EmailIcon  className='hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md animate-slide-down opacity-0'
                 
                                 style={{ animationDelay: `${0.9}s` }} 
                 />
@@ -142,7 +142,7 @@ export default function Home() {
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <LinkedInIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-white animate-slide-down opacity-0  '
+                <LinkedInIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-yellow-200 animate-slide-down opacity-0  '
                 
                                 style={{ animationDelay: `${1.2}s` }} 
                 />
@@ -156,7 +156,7 @@ export default function Home() {
               rel="noopener noreferrer" 
               >
 
-              <GitHubIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-white animate-slide-down opacity-0 '
+              <GitHubIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-yellow-200 animate-slide-down opacity-0 '
               
                                 style={{ animationDelay: `${1.5}s` }} 
               />
@@ -228,7 +228,7 @@ export default function Home() {
           <h1 className={`text-3xl font-bold  `}>Projects</h1>
 
           <p className="flex items-center text-[#ECDFCC]/60 text-sm ">
-              Any feedback is appreciated!
+              Any feedback is always appreciated!
           </p>
 
 
@@ -237,7 +237,7 @@ export default function Home() {
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <EmailIcon  className={`hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-white rounded-md ${projectIsVisable ? 'animate-slide-down' : ''} opacity-0`}
+                <EmailIcon  className={`hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md ${projectIsVisable ? 'animate-slide-down' : ''} opacity-0`}
                 
                 style={{ animationDelay: `${0.3}s` }} 
 />
@@ -311,7 +311,7 @@ export default function Home() {
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <EmailIcon  className={`hover:scale-125  opacity-0 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-white rounded-md  ${contactInView ? 'animate-slide-down' : ''} `}
+                <EmailIcon  className={`hover:scale-125  opacity-0 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md  ${contactInView ? 'animate-slide-down' : ''} `}
                 
                                 style={{ animationDelay: `${1.2}s` }} 
                 />
@@ -324,7 +324,7 @@ export default function Home() {
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <LinkedInIcon  className={`hover:scale-125  opacity-0 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-white rounded-md  ${contactInView ? 'animate-slide-down' : ''} `}
+                <LinkedInIcon  className={`hover:scale-125  opacity-0 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md  ${contactInView ? 'animate-slide-down' : ''} `}
                 
                                 style={{ animationDelay: `${1.5}s` }} 
                 />
@@ -338,7 +338,7 @@ export default function Home() {
               rel="noopener noreferrer" 
               >
 
-              <GitHubIcon  className={`hover:scale-125  opacity-0 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-white rounded-md  ${contactInView ? 'animate-slide-down' : ''} `}
+              <GitHubIcon  className={`hover:scale-125  opacity-0 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md  ${contactInView ? 'animate-slide-down' : ''} `}
                 
                                 style={{ animationDelay: `${1.8}s` }}  
               />

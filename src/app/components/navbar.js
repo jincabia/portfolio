@@ -23,8 +23,8 @@ const VerticalNavBar = ({ activeSection }) => {
             <a href={item.path}>
               <p className={`w-full pb-2 pl-6 transition ease-in ${
                 activeSection === item.section
-                  ? 'text-white/[1] translate-x-4 '
-                  : 'text-white/[0.5] hover:translate-x-4 hover:underline'
+                  ? 'text-yellow-200 translate-x-4  '
+                  : 'text-white/[0.5] hover:translate-x-4 hover:underline hover:text-yellow-200'
               }`
       }>
                 {item.name}
