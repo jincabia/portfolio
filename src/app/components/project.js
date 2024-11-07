@@ -11,7 +11,7 @@ export default function Project({name,date,description,path,link,github})
 
 {
     return(
-        <div className="text-[#ECDFCC]/[.6] text-sm p-4 hover:scale-105 cursor-pointer hover:bg-gray-500/[.1] transition ease-in-out duration-300 rounded-md group  ">
+        <div className=" bg-gray-500/[0.2] md:bg-transparent text-[#ECDFCC]/[.6] text-sm p-4 hover:scale-105 cursor-pointer hover:bg-gray-500/[.1] transition ease-in-out duration-300 rounded-md group  ">
 
 
         
@@ -36,7 +36,7 @@ export default function Project({name,date,description,path,link,github})
 
                     </div>
                     
-                    <div className=" w-3/4 col-span-2 row-span-2 ">
+                    <div className=" md:w-3/4 col-span-2 row-span-2  flex ">
                     {description}
 
                     </div>
@@ -44,7 +44,7 @@ export default function Project({name,date,description,path,link,github})
 
                 </div>
 
-                <div className="row-span-3  mr-4 py-4 "
+                <div className="row-span-3  mr-4 py-4 flex space-x-1"
                         >
                             <Image
                             src={`/${path}`}
@@ -53,7 +53,11 @@ export default function Project({name,date,description,path,link,github})
                             alt={`${name} Image`}
                             className=""      
                             />
-                        </div>
+
+                        {/* Technologies */}
+                        {/* <p>tech</p> */}
+
+                </div>
             
             </a>
 

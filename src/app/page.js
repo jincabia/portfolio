@@ -81,20 +81,20 @@ export default function Home() {
 ]
 
   return (
-    <main id='about' className=" pt-14 snap-mandatory snap-y h-screen  ">
+    <main id='about' className=" pt-14 snap-mandatory snap-y h-screen overflow-y-scroll  ">
 
     <VerticalNavBar activeSection={activeSection}/>
 
     
     {/* About me + Intro */}
-    <div  className="md:flex md:justify-evenly pb-16 md:pt-16  " ref={aboutRefNO}>
+    <div  className="md:flex md:justify-evenly md:pb-16 md:pt-16 snap-start  h-fit " ref={aboutRefNO}>
 
         {/* Intro  */}
 
         <div 
         ref={aboutRef}
         
-          className={`  sm:w-full md:w-1/3 p-4 pt-0`}>
+          className={`  sm:w-full md:w-1/3 sm:pb-4 md:p-4 md:pt-0`}>
 
           <p className={` font-bold text-yellow-200 text-sm  ${aboutInView ? '' : ''}
           `}>
@@ -109,6 +109,7 @@ export default function Home() {
               ))}
           </p>
 
+
           <div
            style={{ animationDelay: `${.6}s` }}
           className={` opacity-0 ${aboutInView ? 'translate-x-[-20px] animate-slide-in' : ''} `}>
@@ -121,7 +122,7 @@ export default function Home() {
 
         
             {/* Links to Email, Github,  Linkedin */}
-            <div className={`flex  pt-4 space-x-2 mt-4 border-t border-white/[0.5] text-white/[.5]
+            <div className={`flex pb-4 pt-4 space-x-2 mt-4 border-t border-white/[0.5] text-white/[.5]
               ${aboutInView ? '' : ''}
               `}>
 
@@ -129,7 +130,7 @@ export default function Home() {
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <EmailIcon  className='hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md animate-slide-down opacity-0'
+                <EmailIcon  className='hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md animate-loadIn opacity-0 '
                 
                                 style={{ animationDelay: `${0.9}s` }} 
                 />
@@ -142,7 +143,7 @@ export default function Home() {
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <LinkedInIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-yellow-200 animate-slide-down opacity-0  '
+                <LinkedInIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-yellow-200 animate-loadIn opacity-0  '
                 
                                 style={{ animationDelay: `${1.2}s` }} 
                 />
@@ -156,7 +157,7 @@ export default function Home() {
               rel="noopener noreferrer" 
               >
 
-              <GitHubIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-yellow-200 animate-slide-down opacity-0 '
+              <GitHubIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-yellow-200 animate-loadIn opacity-0 '
               
                                 style={{ animationDelay: `${1.5}s` }} 
               />
@@ -172,14 +173,18 @@ export default function Home() {
         </div>
 
         {/* About me */}
-          <div className="
-          w-full md:w-1/2  text-[#ECDFCC]/[.6] text-sm hover:scale-105 hover:bg-gray-500/[0.1]  pt-0 p-4 rounded-md 
+          <div className=" bg-gray-500/[.2] md:bg-transparent 
+          w-full md:w-1/2  text-[#ECDFCC]/[.6] text-sm hover:scale-105 hover:bg-gray-500/[0.1]  md:pt-0 p-4 rounded-md 
           ease-in-out duration-300 hover:pt-4
-
+              
           ">
             <div 
             style={{ animationDelay: `${1.3}s` }}
             className={`  opacity-0 ${aboutInView ? ' animate-breath' : ''}`}>
+
+              <h1 className=' font-bold text-yellow-200 ' >
+                About Me
+              </h1>
 
               <p>
               Growing up, I developed a passion for technology and programming through gaming with my brother.&nbsp; 
@@ -219,12 +224,12 @@ export default function Home() {
    
 
       {/* Projects */}
-      <div id='projects' ref={projectsRefNO} className={`md:flex md:justify-evenly mb-96  mt-48  md:pt-16`}>
+      <div id='projects' ref={projectsRefNO} className={` md:justify-evenly md:mb-96  mt-16 md:mt-48  md:pt-16 snap-start h-fit`}>
 
         <div 
         ref={projectsRef}
         // style={{ animationDelay: `${0.2}s` }}
-        className={`pl-4  pt-4  md:w-1/3 opacity-0  ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
+        className={`md:pl-4  pt-4  md:w-1/3 opacity-0  ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
           <h1 className={`text-3xl font-bold  `}>Projects</h1>
 
           <p className="flex items-center text-[#ECDFCC]/60 text-sm ">
@@ -232,12 +237,12 @@ export default function Home() {
           </p>
 
 
-          <div className=' rounded-md  w-max '>
+          <div className=' rounded-md  w-max pb-4 '>
           <a href='mailto:jinfcabia@gmail.com' 
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <EmailIcon  className={`hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md ${projectIsVisable ? 'animate-slide-down' : ''} opacity-0`}
+                <EmailIcon  className={`hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md ${projectIsVisable ? 'animate-loadIn' : ''} opacity-0`}
                 
                 style={{ animationDelay: `${0.3}s` }} 
 />
@@ -248,11 +253,11 @@ export default function Home() {
 
         </div>
 
-        <div className={`md:w-1/2 `} >
-          <ul className='space-y-4'>
-            {projects.map((project,index)=>
+        <div className={` space-y-4 md:space-y-0 md:space-x-8 md:flex`} >
+
+        {projects.map((project,index)=>
             (
-              <li className={`list-none  opacity-0 ${projectIsVisable  ? '  animate-breath ' : ''  }`} key={index}
+              <li className={`list-none  opacity-0 md:odd:pl-4 ${projectIsVisable  ? '  animate-breath ' : ''  }`} key={index}
               style={{ animationDelay: `${index + .5}s` }} 
 
               >
@@ -261,6 +266,8 @@ export default function Home() {
                 />
               </li>
             ))}
+          <ul className='space-y-4'>
+            
           </ul>
         </div>
           
@@ -268,7 +275,7 @@ export default function Home() {
 
       {/* Contact */}
       
-      <div id='contact' ref={contactRefNO} className="md:flex md:justify-evenly my-44  ">
+      <div id='contact' ref={contactRefNO} className="md:flex md:justify-evenly my-16 md:mt-44 snap-start h-fit ">
 
         <div ref={contactRef} className={`pl-4 opacity-0   md:w-1/3   ${contactInView ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
           <h1 className="text-3xl font-bold">Contact</h1>
@@ -285,24 +292,29 @@ export default function Home() {
            hover:py-4
            ">
 
-          <div className={` opacity-0${contactInView  ? '  animate-breath ' : 'opacity-100'  }`}>
-            <h1 className='font-semibold text-white/[.8] text-lg w-fit '>
-
               <a href='mailto:jinfcabia@gmail.com' 
                 target="_blank" 
                 rel="noopener noreferrer" 
               >
 
+          <div className={` opacity-0${contactInView  ? '  animate-breath ' : 'opacity-100'  }`}>
+            <h1 className='font-semibold text-white/[.8] text-lg w-fit '>
+
+
               Get in touch, and drop a message.
               <KeyboardArrowRightIcon fontSize="small" className="group-hover:translate-x-8 transition ease-in-out duration-300"/>
 
-              </a>
 
             </h1>
 
             <p className='text-[#ECDFCC]/[.6] text-sm'>I am currently open for any new opportunities! </p>
 
              {/* Links to Email, Github,  Linkedin */}
+
+         
+
+          </div>
+             </a>
              <div className={`flex  pt-4 space-x-2 mt-4 border-t border-white/[0.5] text-white/[.5]
               ${aboutInView ? '' : ''}
               `}>
@@ -311,9 +323,9 @@ export default function Home() {
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <EmailIcon  className={`hover:scale-125  opacity-0 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md  ${contactInView ? 'animate-slide-down' : ''} `}
+                <EmailIcon  className={`hover:scale-125  opacity-0 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md  ${contactInView ? 'animate-loadIn' : ''} `}
                 
-                                style={{ animationDelay: `${1.2}s` }} 
+                style={{ animationDelay: `${1.2}s` }} 
                 />
               
 
@@ -324,7 +336,7 @@ export default function Home() {
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <LinkedInIcon  className={`hover:scale-125  opacity-0 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md  ${contactInView ? 'animate-slide-down' : ''} `}
+                <LinkedInIcon  className={`hover:scale-125  opacity-0 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md  ${contactInView ? 'animate-loadIn' : ''} `}
                 
                                 style={{ animationDelay: `${1.5}s` }} 
                 />
@@ -338,7 +350,7 @@ export default function Home() {
               rel="noopener noreferrer" 
               >
 
-              <GitHubIcon  className={`hover:scale-125  opacity-0 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md  ${contactInView ? 'animate-slide-down' : ''} `}
+              <GitHubIcon  className={`hover:scale-125  opacity-0 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md  ${contactInView ? 'animate-loadIn' : ''} `}
                 
                                 style={{ animationDelay: `${1.8}s` }}  
               />
@@ -348,10 +360,6 @@ export default function Home() {
 
 
             </div>
-
-         
-
-          </div>
 
           
           

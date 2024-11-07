@@ -51,8 +51,18 @@ body {
     opacity: 1;
     transform: translateY(0); /* Settle in normal position */
   }
+
+ 
 }
 
+@keyframes loadIn {
+  0% {
+    opacity:0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
 
 
 @layer utilities {
@@ -77,6 +87,10 @@ body {
   .animate-slide-down {
     animation: slideDown 0.5s ease-out forwards;
   }
+
+  .animate-loadIn{
+  animation: loadIn 1s ease-in-out forwards;    
+  }
   
   .delay-0 { animation-delay: 0s; }
     .delay-1 { animation-delay: 0.1s; }
@@ -85,3 +99,4 @@ body {
     .delay-4 { animation-delay: 0.4s; }
     .delay-5 { animation-delay: 0.5s; }
 }
+
