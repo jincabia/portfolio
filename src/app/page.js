@@ -257,7 +257,7 @@ export default function Home() {
 
         {projects.map((project,index)=>
             (
-              <li className={`list-none  opacity-0 md:odd:pl-4 ${projectIsVisable  ? '  animate-breath ' : ''  }`} key={index}
+              <li className={`list-none  opacity-0 md:odd:pl-4 ${projectIsVisable  ? '  animate-loadIn ' : ''  }`} key={index}
               style={{ animationDelay: `${index + .5}s` }} 
 
               >
