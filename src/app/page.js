@@ -32,7 +32,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState('about');
 
   useEffect(() => {
-    console.log('prior active', {activeSection})
+    // console.log('prior active', {activeSection})
     if (aboutInViewNO) setActiveSection('about');
     // if (aboutInView) setActiveSection('about');
     if (contactInViewNO) setActiveSection('contact');
@@ -81,7 +81,7 @@ export default function Home() {
 ]
 
   return (
-    <main id='about' className=" pt-14 snap-mandatory snap-y h-screen overflow-y-scroll  ">
+    <main id='about' className=" pt-14 snap-mandatory snap-y h-screen   ">
 
     <VerticalNavBar activeSection={activeSection}/>
 
@@ -257,7 +257,7 @@ export default function Home() {
 
         {projects.map((project,index)=>
             (
-              <li className={`list-none  opacity-0 md:odd:pl-4 ${projectIsVisable  ? '  animate-loadIn ' : ''  }`} key={index}
+              <li className={`list-none  opacity-0  ${projectIsVisable  ? '  animate-loadIn ' : ''  }`} key={index}
               style={{ animationDelay: `${index + .5}s` }} 
 
               >

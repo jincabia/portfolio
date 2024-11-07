@@ -5,8 +5,9 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 export default function Project({ name, date, description, path, link, github }) {
     return (
-        <div className="bg-gray-500/[0.2] md:bg-transparent text-[#ECDFCC]/[.6] text-sm p-4 group-hover:scale-105 cursor-pointer hover:bg-gray-500/[.1] transition ease-in-out duration-300 rounded-md group">
+        <div className="bg-gray-500/[0.2] md:bg-transparent text-[#ECDFCC]/[.6] text-sm p-4 hover:scale-105 cursor-pointer hover:bg-gray-500/[.1] transition ease-in-out duration-300 rounded-md group">
 
+          
             <a href={link || github} target="_blank" rel="noopener noreferrer">
                 <div className="md:grid grid-rows-3 grid-flow-col space">
                     {/* Name */}
@@ -37,9 +38,9 @@ export default function Project({ name, date, description, path, link, github })
                         href={link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-yellow-200 transition-transform ease-in-out duration-300"
+                        className=""
                     >
-                        <LinkIcon className="hover:scale-125" />
+                        <LinkIcon className="hover:scale-125 hover:text-yellow-200 transition-transform ease-in-out duration-300" />
                     </a>
                 )}
 
@@ -48,9 +49,8 @@ export default function Project({ name, date, description, path, link, github })
                         href={github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-yellow-200 transition-transform ease-in-out duration-300"
                     >
-                        <GitHubIcon className="hover:scale-125" />
+                        <GitHubIcon className="hover:scale-125 hover:text-yellow-200 transition-transform ease-in-out duration-300" />
                     </a>
                 )}
             </div>
