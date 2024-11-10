@@ -4,6 +4,10 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import EmailIcon from '@mui/icons-material/Email';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import Image from 'next/image';
+
+import { LineChart } from '@mui/x-charts/LineChart';
+
 
 import { useInView } from 'react-intersection-observer';
 
@@ -15,23 +19,40 @@ import VerticalNavBar from "./components/navbar";
 
 export default function Home() {
 
+  const { ref: introRef, inView: introInView } = useInView({ triggerOnce: true,
+
+    rootMargin: "-20% 0px", // Adjust this margin to control trigger distance
+   });
+
   
-  const { ref: aboutRef, inView: aboutInView } = useInView({ triggerOnce: true });
+  const { ref: aboutRef, inView: aboutInView } = useInView({ triggerOnce: true,
+
+    rootMargin: "-20% 0px", // Adjust this margin to control trigger distance
+   });
   
-  const {ref:projectsRef, inView : projectIsVisable} = useInView({ triggerOnce: true });
+  const {ref:projectsRef, inView : projectIsVisable} = useInView({ triggerOnce: true,
+
+    rootMargin: "-20% 0px", // Adjust this margin to control trigger distance
+   });
   
-  const { ref: contactRef, inView: contactInView } = useInView({ triggerOnce: true });
+  const { ref: contactRef, inView: contactInView } = useInView({ triggerOnce: true,
+
+    rootMargin: "-20% 0px", // Adjust this margin to control trigger distance
+   });
 
 
   // These are ones that dont have an animation
   const { ref: aboutRefNO, inView: aboutInViewNO } = useInView();
+  const { ref: introRefNO, inView: introInViewNO } = useInView();
+
   const {ref:projectsRefNO, inView : projectIsVisableNO} = useInView();
   const { ref: contactRefNO, inView: contactInViewNO } = useInView();
 
 
-  const [activeSection, setActiveSection] = useState('about');
+  const [activeSection, setActiveSection] = useState('intro');
 
   useEffect(() => {
+    if(introInView) setActiveSection('intro')
     // console.log('prior active', {activeSection})
     if (aboutInViewNO) setActiveSection('about');
     // if (aboutInView) setActiveSection('about');
@@ -39,7 +60,7 @@ export default function Home() {
     // if (contactInView) setActiveSection('contact');
      if (projectIsVisableNO) setActiveSection('projects');
     // else if (projectIsVisableNO) setActiveSection('projects');
-  }, [aboutInViewNO, projectIsVisableNO, contactInViewNO]);
+  }, [introInViewNO, aboutInViewNO, projectIsVisableNO, contactInViewNO]);
 
   const intro = ['Hello,','Im']
 
@@ -81,22 +102,35 @@ export default function Home() {
 ]
 
   return (
-    <main id='about' className=" pt-14 snap-mandatory snap-y h-screen   ">
+    <main id='' className=" pt-14 snap-mandatory snap-y h-screen   ">
 
     <VerticalNavBar activeSection={activeSection}/>
 
     
-    {/* About me + Intro */}
-    <div  className="md:flex md:justify-evenly md:pb-16 md:pt-16 snap-start  h-fit " ref={aboutRefNO}>
+     {/* Intro */} 
+    <div id='intro' ref={introRef} className="md:flex md:justify-center md:pb-32 md:pt-16 snap-start  h-fit mb-64 md:space-x-4 " >
 
         {/* Intro  */}
 
-        <div 
-        ref={aboutRef}
-        
-          className={`  sm:w-full md:w-1/3 sm:pb-4 md:p-4 md:pt-0`}>
+        <div   className=' border   w-fit   md:-translate-x-4 md:translate-y-4  mb-10 md:mb-0  md:pt-0
+              '>
+          <Image
+          src={"/swagcropped.jpg"}
+          width={300}
+          height={300}
+          alt='Jins Photo'
+          className=' grayscale-[60%] hover:grayscale-0  duration-300 translate-x-4 -translate-y-4 ease-in-out hover:scale-[1.02]' 
+          quality={100}
+          />
 
-          <p className={` font-bold text-yellow-200 text-sm  ${aboutInView ? '' : ''}
+        </div>
+
+
+        <div 
+        
+          className={`  sm:w-full md:w-1/3 pb-4 md:pb-0 md:p-4  md:pt-0`}>
+
+          <p className={` font-semibold text-white/[.75] text-sm }
           `}>
               {intro.map((word, index) => (
                 <span
@@ -112,8 +146,8 @@ export default function Home() {
 
           <div
            style={{ animationDelay: `${.6}s` }}
-          className={` opacity-0 ${aboutInView ? 'translate-x-[-20px] animate-slide-in' : ''} `}>
-            <h1 className="text-3xl font-bold   ">Jin Francis Cabia</h1>
+          className={` opacity-0  translate-x-[-20px] animate-slide-in  `}>
+            <h1 className="text-3xl font-bold text-yellow-200  ">Jin Francis Cabia</h1>
             <p className="text-white/[.75] font-semibold text-sm " >Recent Software Graduate</p>
            
             <p className="flex items-center text-[#ECDFCC]/60 text-sm md:pt-4">
@@ -123,7 +157,6 @@ export default function Home() {
         
             {/* Links to Email, Github,  Linkedin */}
             <div className={`flex pb-4 pt-4 space-x-2 mt-4 border-t border-white/[0.5] text-white/[.5]
-              ${aboutInView ? '' : ''}
               `}>
 
               <a href='mailto:jinfcabia@gmail.com' 
@@ -172,21 +205,50 @@ export default function Home() {
 
         </div>
 
-        {/* About me */}
-          <div className=" bg-gray-500/[.2] md:bg-transparent 
-          w-full md:w-1/2  text-[#ECDFCC]/[.6] text-sm hover:scale-105 hover:bg-gray-500/[0.1]  md:pt-0 p-4 rounded-md 
-          ease-in-out duration-300 hover:pt-4
+       
+      
+
+    </div>
+
+
+      {/* About me Section */}
+    <div id='about' className="md:flex  md:justify-center md:my-64 snap-start   min-h-[80vh]" ref={aboutRefNO}>
+
+          {/* About me Title */}
+      <div
+      ref={aboutRef}
+      className={`  sm:w-full md:w-1/3 pb-4 md:pb-0 md:p-4  md:pt-0`}
+      >
+            <h1 className={`text-3xl font-bold opacity-0  ${aboutInView ? ' translate-x-[-20px] animate-slide-in ' : ''}   `}>About me!</h1>
+           
+      </div>
+
+
+
+        {/* About me Paragraph */}
+        <div className=" bg-gray-500/[.2] md:bg-transparent 
+          w-full md:w-1/2  text-[#ECDFCC]/[.6] text-sm hover:scale-105 hover:bg-gray-500/[0.1] h-fit  md:pt-0 p-4 rounded-md 
+          ease-in-out duration-300 hover:pt-4 
               
           ">
             <div 
-            style={{ animationDelay: `${1.3}s` }}
-            className={`  opacity-0 ${aboutInView ? ' animate-breath' : ''}`}>
+            style={{ animationDelay: `${.5}s` }}
+            className={` w-full text-white/70 duration-300 ease-in-out opacity-0 h-fit ${aboutInView ? ' animate-breath' : ''}`}>
 
-              <h1 className=' font-bold text-yellow-200 ' >
-                About Me
-              </h1>
-
+             
               <p>
+              Hi, my names Jin. I started my developer journey early in Junior High where I started to learn Scratch, a block programming language.
+              In Highschool I took Computer Science and learned beginner Web Development Skills (HTML, CSS, JS) then some C# and Python. 
+              
+              Currently I recently just graduated from SAIT with a 
+              <strong className='text-yellow-200/[.8]'> 2 Year Diploma in Software Development </strong>  
+              and I am currently looking for any internships or software Development roles.
+              </p>
+
+              {/* <p>
+
+
+
               Growing up, I developed a passion for technology and programming through gaming with my brother.&nbsp; 
               <strong className='text-yellow-200/[.8]'>
               
@@ -195,9 +257,8 @@ export default function Home() {
               
                 , a block-based programming language, 
               which ignited my interest in software development.
-              </p>
 
-              <p>
+              
               To deepen my skills, <strong className="text-yellow-200/[.8]"> I pursued a computer science course in Grades 10, 11, and 12</strong>  where it taught me the 
               fundamentals of programming in <strong  className="text-yellow-200/[.8]"> 
               C#, Python HTML, CSS and JavaScript 
@@ -214,9 +275,32 @@ export default function Home() {
               <strong className="text-yellow-200"> I am actively seeking internships or software development roles </strong>
               to 
               jumpstart my career. Im passionate about learning, driven to expand my skills and open to any developer roles.
-              </p>
+              </p> */}
             </div>
+
+            <div>
+
+              {/* USE THE CHART TO SHOWCASE MY JOURNEY */}
+
+            <LineChart
+              xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+              series={[
+                {
+                  data: [2, 5.5, 2, 8.5, 1.5, 5],
+                },
+              ]}
+              width={500}
+              height={300}
+            />
+             
+            </div>
+
+
           </div>
+
+
+      
+
 
     </div>
 
@@ -224,40 +308,52 @@ export default function Home() {
    
 
       {/* Projects */}
-      <div id='projects' ref={projectsRefNO} className={` md:justify-evenly md:mb-96  mt-16 md:mt-48  md:pt-16 snap-start h-fit`}>
+      <div id='projects' ref={projectsRefNO} className={`border md:justify-evenly md:mb-96  mt-16 md:mt-48  md:pt-16 snap-start h-fit mb-20 min-h-[80vh]`}>
 
-        <div 
-        ref={projectsRef}
-        // style={{ animationDelay: `${0.2}s` }}
-        className={`md:pl-4  pt-4  md:w-1/3 opacity-0  ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
-          <h1 className={`text-3xl font-bold  `}>Projects</h1>
+        <div className='flex justify-evenly'>
 
-          <p className="flex items-center text-[#ECDFCC]/60 text-sm ">
-              Any feedback is always appreciated!
-          </p>
+          <div 
+          ref={projectsRef}
+          // style={{ animationDelay: `${0.2}s` }}
+          className={`md:pl-4  pt-4  md:w-1/3 opacity-0  ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
+            <h1 className={`text-3xl font-bold  `}>Projects</h1>
+
+            <p className="flex items-center text-[#ECDFCC]/60 text-sm ">
+                Any feedback is always appreciated!
+            </p>
 
 
-          <div className=' rounded-md  w-max pb-4 '>
-          <a href='mailto:jinfcabia@gmail.com' 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              >
-                <EmailIcon  className={`hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md ${projectIsVisable ? 'animate-loadIn' : ''} opacity-0`}
+            <div className=' rounded-md  w-max pb-4 '>
+            <a href='mailto:jinfcabia@gmail.com' 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                >
+                  <EmailIcon  className={`hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md ${projectIsVisable ? 'animate-loadIn' : ''} opacity-0`}
+                  
+                  style={{ animationDelay: `${0.3}s` }} 
+  />
                 
-                style={{ animationDelay: `${0.3}s` }} 
-/>
-              
-              </a>
+                </a>
+
+            </div>
+
+          </div>
+
+          <div className='w-1/2'>
 
           </div>
 
         </div>
 
-        <div className={` space-y-4 md:space-y-0 md:space-x-8 md:flex`} >
+
+        <div className={`  md:justify-between space-y-4 md:space-y-0 md:space-x-8 md:flex`} >
+
+
+      
 
         {projects.map((project,index)=>
             (
-              <li className={`list-none  opacity-0  ${projectIsVisable  ? '  animate-loadIn ' : ''  }`} key={index}
+              <li className={`list-none w-1/3 opacity-0  ${projectIsVisable  ? '  animate-loadIn ' : ''  }`} key={index}
               style={{ animationDelay: `${index + .5}s` }} 
 
               >
@@ -266,28 +362,30 @@ export default function Home() {
                 />
               </li>
             ))}
-          <ul className='space-y-4'>
-            
-          </ul>
+         
+        
         </div>
           
       </div>
 
+
+            {/* TODO CENTER THIS CONTACT AND C IF IT LOOKS GOOD */}
       {/* Contact */}
       
-      <div id='contact' ref={contactRefNO} className="md:flex md:justify-evenly my-16 md:mt-44 snap-start h-fit ">
+      <div id='contact' ref={contactRefNO} className="md:flex md:justify-evenly my-16  md:mt-44 snap-start  min-h-[40vh]  ">
 
-        <div ref={contactRef} className={`pl-4 opacity-0   md:w-1/3   ${contactInView ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
+        <div ref={contactRef} className={`md:pl-4 opacity-0   md:w-1/3   ${contactInView ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
           <h1 className="text-3xl font-bold">Contact</h1>
         </div>
 
 
-        <div className="md:w-1/2 pl-4 
+        <div className="md:w-fit md:px-4 
         rounded-md
          hover:bg-gray-500/[0.1] 
            ease-in-out 
            duration-300  
            group
+           h-fit
 
            hover:py-4
            ">
@@ -302,12 +400,12 @@ export default function Home() {
 
 
               Get in touch, and drop a message.
-              <KeyboardArrowRightIcon fontSize="small" className="group-hover:translate-x-8 transition ease-in-out duration-300"/>
+              <KeyboardArrowRightIcon fontSize="small" className="group-hover:translate-x-4 transition ease-in-out duration-300"/>
 
 
             </h1>
 
-            <p className='text-[#ECDFCC]/[.6] text-sm'>I am currently open for any new opportunities! </p>
+            <p className='text-[#ECDFCC]/[.6] text-sm border-b pb-4 border-white/[0.5] w-fit'>I am currently open for any new opportunities! </p>
 
              {/* Links to Email, Github,  Linkedin */}
 
@@ -315,7 +413,8 @@ export default function Home() {
 
           </div>
              </a>
-             <div className={`flex  pt-4 space-x-2 mt-4 border-t border-white/[0.5] text-white/[.5]
+
+             <div className={`flex   space-x-2 mt-4  text-white/[.5] 
               ${aboutInView ? '' : ''}
               `}>
 
@@ -360,7 +459,6 @@ export default function Home() {
 
 
             </div>
-
           
           
         
