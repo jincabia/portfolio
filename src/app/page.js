@@ -20,13 +20,6 @@ import Project from './components/project';
 import VerticalNavBar from "./components/navbar";
 
 
-// TODO 
-// Work on about me
-// ex Technologies n Journey showing
-
-// Work on Projects figure out how to style it so it lines up with everything else, look at examples too
-
-
 
 export default function Home() {
 
