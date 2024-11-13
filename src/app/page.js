@@ -103,7 +103,7 @@ export default function Home() {
   {
     name: "AI Web Scraper",
     date: "2024",
-    description: "An AI Web Scraper using Selenium, Streamlit, BeautifulSoup, LangChain and Ollama3.1. Where we scrape data using Beautiful Soup from a URL then pass it into Ollama3.1 to parse the data then return it. ",
+    description: "An AI Web Scraper using Selenium, Streamlit, BeautifulSoup, LangChain and Ollama3.1. Where we scrape data from a URL then pass it into Ollama3.1 to parse the data then return it. ",
     path: "aiwebscraper.png",
     link: "",
     github:"https://github.com/jincabia/AI-Web-Scraper"
@@ -133,6 +133,7 @@ export default function Home() {
           alt='Jins Photo'
           className=' grayscale-[60%] hover:grayscale-0  duration-300 translate-x-4 -translate-y-4 ease-in-out hover:scale-[1.02]' 
           quality={100}
+          priority={true}
           />
 
         </div>
@@ -264,20 +265,20 @@ export default function Home() {
         <div className=' md:w-1/3 md:border-b border-white/35 py-4 md:p-4    '>
 
         {/* Education  */}
-          <div className='hover:scale-[1.02] duration-300 ease-in-out '>
+          <div className='hover:scale-105 w-full duration-300 ease-in-out  '>
             
             <h1 className='font-semibold text-yellow-200 '>
               Education
             </h1>
 
-            <div className='md:indent-2 text-sm text-[#ECDFCC]/[.8]'>
-              <h2 className='text-[#ECDFCC]'>
+            <div className='  text-sm text-[#ECDFCC]/[.8] bg-gray-500/[0.2] p-4 rounded-md'>
+              <h2 className='text-[#ECDFCC] font-semibold'>
                 SAIT | Calgary AB
               </h2>
 
-              <div className='flex '>
+              <div className='flex text-xs '>
 
-                <p>
+                <p >
                   Diploma in Software Development 
                 </p>
                 <p className=' mx-auto flex justify-end text-end'>2023-2024</p>
@@ -296,7 +297,7 @@ export default function Home() {
               </h1>
 
              
-              <div className='md:indent-2 text-sm text-[#ECDFCC]/[.8] pl-4   bg-[#1E201E]/[.4] rounded-md pb-4'>
+              <div className='md:indent-2 text-sm text-[#ECDFCC]/[.8] pl-4   bg-gray-500/[0.2] rounded-md pb-4'>
 
                 
 
@@ -385,14 +386,15 @@ export default function Home() {
    
 
       {/* Projects */}
-      <div id='projects' ref={projectsRefNO} className={`border md:justify-evenly md:mb-96  mt-16 md:mt-48  md:pt-16 snap-start h-fit mb-20 min-h-[80vh]`}>
+      <div id='projects' ref={projectsRefNO} className={` md:justify-evenly  border-b border-white/35 pb-4  min-h-[80vh]`}>
 
-        <div className='flex justify-evenly'>
+              {/* Project Title */}
+        <div className='md:flex md:justify-evenly'>
 
           <div 
           ref={projectsRef}
           // style={{ animationDelay: `${0.2}s` }}
-          className={`md:pl-4  pt-4  md:w-1/3 opacity-0 border ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
+          className={`md:pl-4  pt-4  md:w-1/3 opacity-0  ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
             <h1 className={`text-3xl font-bold  `}>Projects</h1>
 
             <p className="flex items-center text-[#ECDFCC]/60 text-sm ">
@@ -400,7 +402,7 @@ export default function Home() {
             </p>
 
 
-            <div className=' rounded-md  w-max pb-4 '>
+            <div className=' rounded-md  w-max  '>
             <a href='mailto:jinfcabia@gmail.com' 
                 target="_blank" 
                 rel="noopener noreferrer" 
@@ -416,21 +418,23 @@ export default function Home() {
 
           </div>
 
-          <div className='w-1/2'>
-
+          <div className=' w-1/2 md:border-b h-1 border-white/35  md:translate-y-8 '>
+                  
           </div>
+
+        
 
         </div>
 
 
-        <div className={`  md:justify-between space-y-4 md:space-y-0 md:space-x-8 md:flex`} >
+        <div className={`  md:justify-around space-y-4 pt-0 md:pt-4 md:space-y-0 md:space-x-8 md:flex`} >
 
 
       
 
         {projects.map((project,index)=>
             (
-              <li className={`list-none w-1/3 opacity-0  ${projectIsVisable  ? '  animate-loadIn ' : ''  }`} key={index}
+              <li className={`list-none md:w-1/3 opacity-0  ${projectIsVisable  ? '  animate-loadIn ' : ''  }`} key={index}
               style={{ animationDelay: `${index + .5}s` }} 
 
               >
@@ -449,7 +453,7 @@ export default function Home() {
             {/* TODO CENTER THIS CONTACT AND C IF IT LOOKS GOOD */}
       {/* Contact */}
       
-      <div id='contact' ref={contactRefNO} className="md:flex md:justify-evenly my-16  md:mt-44 snap-start  min-h-[40vh]  ">
+      <div id='contact' ref={contactRefNO} className="w-1/2 mx-auto md:justify-center my-16  md:mt-72  snap-start  min-h-[40vh]  ">
 
         <div ref={contactRef} className={`md:pl-4 opacity-0   md:w-1/3   ${contactInView ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
           <h1 className="text-3xl font-bold">Contact</h1>
@@ -473,7 +477,7 @@ export default function Home() {
               >
 
           <div className={` opacity-0${contactInView  ? '  animate-breath ' : 'opacity-100'  }`}>
-            <h1 className='font-semibold text-white/[.8] text-lg w-fit '>
+            <h1 className='font-semibold text-white/[.8] text-lg w-fit text-yellow-200 '>
 
 
               Get in touch, and drop a message.

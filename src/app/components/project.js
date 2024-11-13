@@ -16,7 +16,7 @@ export default function Project({ name, date, description, path, link, github })
                         <KeyboardArrowRightIcon fontSize="small" className="group-hover:translate-x-8 transition ease-in-out duration-300" />
                     </div>
 
-                    <div className="md:w-3/4 col-span-2 row-span-2 flex">
+                    <div className=" col-span-2 row-span-2 flex text-ellipsis">
                         {description}
                     </div>
                 </div>
@@ -24,11 +24,12 @@ export default function Project({ name, date, description, path, link, github })
                 <div className="row-span-3 mr-4 py-4 flex space-x-1">
                     <Image
                         src={`/${path}`}
-                        width={200}
+                        width={400}
                         height={200}
                         alt={`${name} Image`}
                         className=""
-                    />
+                        objectFit="contain"
+/>
                 </div>
             </a>
 
