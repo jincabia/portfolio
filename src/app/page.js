@@ -10,10 +10,6 @@ import Image from 'next/image';
 
 import { useInView } from 'react-intersection-observer';
 
-import CircleIcon from '@mui/icons-material/Circle';
-
-import Timeline from './components/timeline';
-
 import Project from './components/project';
 
 
