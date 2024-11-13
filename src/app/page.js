@@ -11,10 +11,22 @@ import { LineChart } from '@mui/x-charts/LineChart';
 
 import { useInView } from 'react-intersection-observer';
 
+import CircleIcon from '@mui/icons-material/Circle';
+
+import Timeline from './components/timeline';
+
 import Project from './components/project';
 
 
 import VerticalNavBar from "./components/navbar";
+
+
+// TODO 
+// Work on about me
+// ex Technologies n Journey showing
+
+// Work on Projects figure out how to style it so it lines up with everything else, look at examples too
+
 
 
 export default function Home() {
@@ -205,106 +217,171 @@ export default function Home() {
 
         </div>
 
-       
-      
-
     </div>
+
+
+
 
 
       {/* About me Section */}
-    <div id='about' className="md:flex  md:justify-center md:my-64 snap-start   min-h-[80vh]" ref={aboutRefNO}>
 
-          {/* About me Title */}
-      <div
-      ref={aboutRef}
-      className={`  sm:w-full md:w-1/3 pb-4 md:pb-0 md:p-4  md:pt-0`}
-      >
-            <h1 className={`text-3xl font-bold opacity-0  ${aboutInView ? ' translate-x-[-20px] animate-slide-in ' : ''}   `}>About me!</h1>
-           
+    <div className={` md:mb-64 min-h-[80vh]    `} ref={aboutRefNO}>
+      {/*  */}
+      <div id='about' className=" md:flex md:justify-evenly snap-start   " ref={aboutRefNO}>
+
+            {/* About me Title */}
+        <div
+          ref={aboutRef}
+          className={`    md:w-1/3    pb-4 md:pb-0 md:p-4  md:pt-0 md:pl-0 `}
+        >
+              <h1 
+                className={`text-3xl font-bold opacity-0 md:pl-4 ${aboutInView ? ' translate-x-[-20px] animate-slide-in ' : ''}   `}>
+                About me
+              </h1>
+            
+        </div>
+
+        <div className=' w-1/2 md:border-b border-white/35  md:-translate-y-4 '>
+                  
+        </div>
+
+        
+
+       
       </div>
 
+     
+     
+
+      <div className={`md:ml-4 opacity-0 md:flex md:justify-evenly ${aboutInView ? '  animate-loadIn ' : ''}  `}
+      style={{ animationDelay: `${ 0.5}s` }} 
+      >
 
 
-        {/* About me Paragraph */}
-        <div className=" bg-gray-500/[.2] md:bg-transparent 
-          w-full md:w-1/2  text-[#ECDFCC]/[.6] text-sm hover:scale-105 hover:bg-gray-500/[0.1] h-fit  md:pt-0 p-4 rounded-md 
-          ease-in-out duration-300 hover:pt-4 
-              
-          ">
-            <div 
-            style={{ animationDelay: `${.5}s` }}
-            className={` w-full text-white/70 duration-300 ease-in-out opacity-0 h-fit ${aboutInView ? ' animate-breath' : ''}`}>
+       
 
-             
-              <p>
-              Hi, my names Jin. I started my developer journey early in Junior High where I started to learn Scratch, a block programming language.
-              In Highschool I took Computer Science and learned beginner Web Development Skills (HTML, CSS, JS) then some C# and Python. 
-              
-              Currently I recently just graduated from SAIT with a 
-              <strong className='text-yellow-200/[.8]'> 2 Year Diploma in Software Development </strong>  
-              and I am currently looking for any internships or software Development roles.
-              </p>
+            {/* Educations / Left section */}
+        <div className=' md:w-1/3 md:border-b border-white/35 py-4 md:p-4    '>
 
-              {/* <p>
+        {/* Education  */}
+          <div className='hover:scale-[1.02] duration-300 ease-in-out '>
+            
+            <h1 className='font-semibold text-yellow-200 '>
+              Education
+            </h1>
 
+            <div className='md:indent-2 text-sm text-[#ECDFCC]/[.8]'>
+              <h2 className='text-[#ECDFCC]'>
+                SAIT | Calgary AB
+              </h2>
 
+              <div className='flex '>
 
-              Growing up, I developed a passion for technology and programming through gaming with my brother.&nbsp; 
-              <strong className='text-yellow-200/[.8]'>
-              
-              When I was 13  , I began exploring Scratch
-              </strong>
-              
-                , a block-based programming language, 
-              which ignited my interest in software development.
+                <p>
+                  Diploma in Software Development 
+                </p>
+                <p className=' mx-auto flex justify-end text-end'>2023-2024</p>
 
-              
-              To deepen my skills, <strong className="text-yellow-200/[.8]"> I pursued a computer science course in Grades 10, 11, and 12</strong>  where it taught me the 
-              fundamentals of programming in <strong  className="text-yellow-200/[.8]"> 
-              C#, Python HTML, CSS and JavaScript 
-              </strong> 
-              , I then joined the <strong className="text-yellow-200/[.8]"> Schulich Ignite </strong> 
-              extracurricular program, where I gained hands-on experience with game development in Python using Pygame.
-              </p>
-
-              <p>
-              Currently, I have just finished my studies in <strong className='text-yellow-200/[.8]'>Software Development at SAIT, </strong>
-              there I developed my capstone project being a progressive web app for
-              Gong Cha Shawnessy  where we virtualized the menu.
-              After completing the two year Diploma I am eager to apply my knowledge in a real-world setting and&nbsp;
-              <strong className="text-yellow-200"> I am actively seeking internships or software development roles </strong>
-              to 
-              jumpstart my career. Im passionate about learning, driven to expand my skills and open to any developer roles.
-              </p> */}
+              </div>
             </div>
-
-            <div>
-
-              {/* USE THE CHART TO SHOWCASE MY JOURNEY */}
-
-            <LineChart
-              xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-              series={[
-                {
-                  data: [2, 5.5, 2, 8.5, 1.5, 5],
-                },
-              ]}
-              width={500}
-              height={300}
-            />
-             
-            </div>
-
-
           </div>
 
+         
+        </div>
 
+          {/* Right Div under About me / Technologies */}
+        <div className={` md:w-1/2  md:p-4 hover:scale-105 duration-300 ease-in-out `}>
+          <h1 className='font-semibold text-yellow-200  '>
+                Technologies
+              </h1>
+
+             
+              <div className='md:indent-2 text-sm text-[#ECDFCC]/[.8] pl-4   bg-[#1E201E]/[.4] rounded-md pb-4'>
+
+                
+
+                <div className='   grid w-auto  '>
+
+                  <div className=' pt-4'>
+
+                  <h1 className='text-[#ECDFCC] font-semibold '>
+                      Languages
+                    </h1>
+                    {/* Front End List */}
+                    <ul className='list-inside grid grid-cols-3  list-disc  mb-4  '>
+                      <li className=''>
+                        JavaScript
+                      </li>
+
+                      <li className=''>
+                        Python
+                      </li>
+
+                      <li className=''>
+                        SQL
+                      </li>
+                    </ul>
+                  </div>
+
+
+                  <h1 className='text-[#ECDFCC] font-semibold'>
+                    Front-end
+                  </h1>
+                  {/* Front End List */}
+                  <ul className='list-inside grid grid-cols-3  list-disc text-sm mb-4 '>
+                    <li className=''>
+                      React.js
+                    </li>
+
+                    <li className=''>
+                      Tailwind
+                    </li>
+
+                    <li className=''>
+                      HTML / CSS
+                    </li>
+                  </ul>
+
+                  <h1 className='text-[#ECDFCC] font-semibold'>
+                    Back-end
+                  </h1>
+                  {/* Back end List */}
+                  <ul className='list-inside grid grid-cols-3  list-disc text-sm '>
+                    <li className=''>
+                      Node.js
+                    </li>
+
+                    <li className=''>
+                      Django & DRF
+                    </li>
+
+                    <li className=''>
+                      Firebase
+                    </li>
+                  </ul>
+
+                 
+                </div >
+
+               
+              </div>
+
+        
+
+            
+
+
+        </div>
+       
+      </div>
       
-
-
     </div>
 
 
+
+
+   
+    
    
 
       {/* Projects */}
@@ -315,7 +392,7 @@ export default function Home() {
           <div 
           ref={projectsRef}
           // style={{ animationDelay: `${0.2}s` }}
-          className={`md:pl-4  pt-4  md:w-1/3 opacity-0  ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
+          className={`md:pl-4  pt-4  md:w-1/3 opacity-0 border ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
             <h1 className={`text-3xl font-bold  `}>Projects</h1>
 
             <p className="flex items-center text-[#ECDFCC]/60 text-sm ">
