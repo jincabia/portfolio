@@ -6,7 +6,6 @@ import EmailIcon from '@mui/icons-material/Email';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import Image from 'next/image';
 
-import { LineChart } from '@mui/x-charts/LineChart';
 
 
 import { useInView } from 'react-intersection-observer';
