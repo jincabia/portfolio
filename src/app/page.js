@@ -453,7 +453,7 @@ export default function Home() {
             {/* TODO CENTER THIS CONTACT AND C IF IT LOOKS GOOD */}
       {/* Contact */}
       
-      <div id='contact' ref={contactRefNO} className="w-1/2 mx-auto md:justify-center my-16  md:mt-72  snap-start  min-h-[40vh]  ">
+      <div id='contact' ref={contactRefNO} className="w-fit mx-auto md:justify-center my-16  md:mt-72  snap-start  min-h-[40vh]  ">
 
         <div ref={contactRef} className={`md:pl-4 opacity-0   md:w-1/3   ${contactInView ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
           <h1 className="text-3xl font-bold">Contact</h1>
@@ -468,7 +468,7 @@ export default function Home() {
            group
            h-fit
 
-           hover:py-4
+           py-4
            ">
 
               <a href='mailto:jinfcabia@gmail.com' 
