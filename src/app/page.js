@@ -17,7 +17,7 @@ import VerticalNavBar from "./components/navbar";
 
 
 
-export default function Home() {
+const Home = () => {
 
   const { ref: introRef, inView: introInView } = useInView({ triggerOnce: true,
 
@@ -548,3 +548,4 @@ export default function Home() {
   );
 }
 
+export default Home
