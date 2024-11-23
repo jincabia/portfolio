@@ -22,6 +22,8 @@ module.exports = {
     "hover:scale-125",
     "hover:cursor-pointer",
     "hover:text-yellow-200",
+    "transition",
+    "ease-in-out ",
    
   ],
   plugins: [],

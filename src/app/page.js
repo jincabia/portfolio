@@ -519,7 +519,8 @@ const Home = () => {
               >
 
               <GitHubIcon
-                className={`opacity-0 ${contactInView ? 'animate-loadIn' : ''} transition ease-in-out hover:scale-125 hover:cursor-pointer hover:text-yellow-200 text-white/[.5] rounded-md`}
+                className={` duration-300 transition ease-in-out hover:scale-125 hover:cursor-pointer hover:text-yellow-200 text-white/[.5] rounded-md`}
+                // opacity-0 ${contactInView ? 'animate-loadIn' : ''}
                 // style={{ animationDelay: '1.0s' }}
               />
 
@@ -538,6 +539,16 @@ const Home = () => {
 
       {/* Footer  */}
       <footer className='w-1/2 mx-auto mb-16 text-sm text-white/[.4]'> 
+        <div className={` opacity-0 ${contactInView ? 'animate-loadIn' : ''}`}>
+          <a
+           href="https://github.com/jincabia" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+          >
+
+          <p className={`opacity-0 hover:scale-125 bg-slate-400 transition ease-in-out duration-300 hover:bg-red-500  ${contactInView ? 'animate-loadIn' : ''}`}>HOVER ME</p>
+          </a>
+        </div>
 
        
         <p>Made by Jin, built with Next.js, Tailwind CSS and deployed using Vercel</p>
