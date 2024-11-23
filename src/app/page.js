@@ -52,7 +52,7 @@ const Home = () => {
   const [activeSection, setActiveSection] = useState('intro');
 
   useEffect(() => {
-    if(introInView) setActiveSection('intro')
+    if(introInViewNO) setActiveSection('intro')
     // console.log('prior active', {activeSection})
     if (aboutInViewNO) setActiveSection('about');
     // if (aboutInView) setActiveSection('about');
@@ -166,7 +166,7 @@ const Home = () => {
               >
                 <EmailIcon  className='hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md animate-loadIn opacity-0 '
                 
-                                style={{ animationDelay: `${0.9}s` }} 
+                                // style={{ animationDelay: `${0.9}s` }} 
                 />
               
 
@@ -179,7 +179,7 @@ const Home = () => {
               >
                 <LinkedInIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-yellow-200 animate-loadIn opacity-0  '
                 
-                                style={{ animationDelay: `${1.2}s` }} 
+                                // style={{ animationDelay: `${1.2}s` }} 
                 />
 
               </a>
@@ -193,7 +193,7 @@ const Home = () => {
 
               <GitHubIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-yellow-200 animate-loadIn opacity-0 '
               
-                                style={{ animationDelay: `${1.5}s` }} 
+                                // style={{ animationDelay: `${1.5}s` }} 
               />
 
               </a>
@@ -491,9 +491,9 @@ const Home = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <EmailIcon  className={`hover:scale-125  hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md  ${contactInView ? 'animate-loadIn' : ''} `}
+                <EmailIcon  className={`hover:scale-125 opacity-0  hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md  ${contactInView ? 'animate-loadIn' : ''} `}
                 
-                style={{ animationDelay: `${1.2}s` }} 
+                // style={{ animationDelay: `${1.}s` }} 
                 />
               
 
@@ -504,9 +504,9 @@ const Home = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <LinkedInIcon  className={`hover:scale-125   hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md  ${contactInView ? 'animate-loadIn' : 'opacity-0'} `}
+                <LinkedInIcon  className={`hover:scale-125 opacity-0   hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md  ${contactInView ? 'animate-loadIn' : ''} `}
                 
-                                style={{ animationDelay: `${1.5}s` }} 
+                                // style={{ animationDelay: `${1.}s` }} 
                 />
 
               </a>
@@ -518,9 +518,9 @@ const Home = () => {
               rel="noopener noreferrer" 
               >
 
-              <GitHubIcon  className={`hover:scale-125   hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md  ${contactInView ? 'animate-loadIn' : 'opacity-0'} `}
-                
-                                style={{ animationDelay: `${1.8}s` }}  
+              <GitHubIcon
+                className={`opacity-0 ${contactInView ? 'animate-loadIn' : ''} transition ease-in-out hover:scale-125 hover:cursor-pointer hover:text-yellow-200 text-white/[.5] rounded-md`}
+                // style={{ animationDelay: '1.0s' }}
               />
 
               </a>
