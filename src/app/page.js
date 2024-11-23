@@ -442,7 +442,8 @@ const Home = () => {
       
       <div id='contact' ref={contactRefNO} className="w-fit mx-auto md:justify-center my-16  md:mt-72  snap-start  min-h-[40vh]  ">
 
-        <div ref={contactRef} className={`md:pl-4 opacity-0   md:w-1/3   ${contactInView ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
+        <div ref={contactRef} className={`md:pl-4    md:w-1/3   ${contactInView ? ' animate-slide-in ' : 'opacity-0'} `}>
+        {/* translate-x-[-20px] */}
           <h1 className="text-3xl font-bold">Contact</h1>
         </div>
 
