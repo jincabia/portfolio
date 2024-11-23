@@ -250,7 +250,7 @@ export default function Home() {
        
 
             {/* Educations / Left section */}
-        <div className=' md:w-1/3 md:border-b border-white/35 py-4 md:p-4    '>
+        <div className=' md:w-1/3 md:border-b border-white/35 py-4 md:p-4 md:pl-0    '>
 
         {/* Education  */}
           <div className='hover:scale-105 w-full duration-300 ease-in-out  '>
@@ -382,7 +382,7 @@ export default function Home() {
           <div 
           ref={projectsRef}
           // style={{ animationDelay: `${0.2}s` }}
-          className={`md:pl-4  pt-4  md:w-1/3 opacity-0  ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
+          className={`  pt-4  md:w-1/3 opacity-0  ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
             <h1 className={`text-3xl font-bold  `}>Projects</h1>
 
             <p className="flex items-center text-[#ECDFCC]/60 text-sm ">
@@ -438,7 +438,6 @@ export default function Home() {
       </div>
 
 
-            {/* TODO CENTER THIS CONTACT AND C IF IT LOOKS GOOD */}
       {/* Contact */}
       
       <div id='contact' ref={contactRefNO} className="w-fit mx-auto md:justify-center my-16  md:mt-72  snap-start  min-h-[40vh]  ">
@@ -464,7 +463,7 @@ export default function Home() {
                 rel="noopener noreferrer" 
               >
 
-          <div className={` opacity-0${contactInView  ? '  animate-breath ' : 'opacity-100'  }`}>
+          <div className={` opacity-0 ${contactInView  ? '  animate-loadIn ' : ''  }`}>
             <h1 className='font-semibold text-white/[.8] text-lg w-fit text-yellow-200 '>
 
 
