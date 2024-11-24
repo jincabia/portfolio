@@ -5,6 +5,8 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import EmailIcon from '@mui/icons-material/Email';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import Image from 'next/image';
+import GlobalIcon from './components/wrapper';
+import GlobalArrow from './components/arrow-wrapper';
 
 
 
@@ -108,7 +110,7 @@ const Home = () => {
 
     
      {/* Intro */} 
-    <div id='intro' ref={introRef} className="md:flex md:justify-center md:pb-32 md:pt-16 md:mb-16 snap-start  h-fit  md:space-x-4 " >
+    <div id='intro' ref={introRef} className="md:flex md:justify-center md:pb-32 md:pt-16 md:mb-16 snap-start  h-fit  md:space-x-4 mb-1/4 scroll-mt-20 " >
 
         {/* Intro  */}
 
@@ -137,7 +139,7 @@ const Home = () => {
                 <span
                   key={index}
                   className="inline-block animate-slide-down opacity-0"
-                  style={{ animationDelay: `${index * 0.4}s` }} 
+                  style={{ animationDelay: `${index * 0.5}s` }} 
                 >
                   {word}&nbsp; {/* Adding space between words */}
                 </span>
@@ -146,7 +148,7 @@ const Home = () => {
 
 
           <div
-           style={{ animationDelay: `${.6}s` }}
+           style={{ animationDelay: `${.9}s` }}
           className={` opacity-0  translate-x-[-20px] animate-slide-in  `}>
             <h1 className="text-3xl font-bold text-yellow-200  ">Jin Francis Cabia</h1>
             <p className="text-white/[.75] font-semibold text-sm " >Recent Software Graduate</p>
@@ -164,10 +166,15 @@ const Home = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <EmailIcon  className='hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md animate-loadIn opacity-0 '
-                
-                                // style={{ animationDelay: `${0.9}s` }} 
-                />
+                <GlobalIcon>
+
+                  <EmailIcon  
+                  // className='hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md animate-loadIn opacity-0 '
+                  
+                  
+                  // style={{ animationDelay: `${0.9}s` }} 
+                  />
+                </GlobalIcon>
               
 
               </a>
@@ -177,10 +184,13 @@ const Home = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <LinkedInIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-yellow-200 animate-loadIn opacity-0  '
-                
-                                // style={{ animationDelay: `${1.2}s` }} 
+                <GlobalIcon>
+
+                <LinkedInIcon 
+                // className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-yellow-200 animate-loadIn opacity-0  '
+                // style={{ animationDelay: `${1.2}s` }} 
                 />
+                </GlobalIcon>
 
               </a>
 
@@ -191,10 +201,13 @@ const Home = () => {
               rel="noopener noreferrer" 
               >
 
-              <GitHubIcon className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-yellow-200 animate-loadIn opacity-0 '
-              
-                                // style={{ animationDelay: `${1.5}s` }} 
+              <GlobalIcon>
+
+              <GitHubIcon 
+              // className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-yellow-200 animate-loadIn opacity-0 '
+              // style={{ animationDelay: `${1.5}s` }} 
               />
+              </GlobalIcon>
 
               </a>
 
@@ -214,7 +227,7 @@ const Home = () => {
 
       {/* About me Section */}
 
-    <div className={` md:mb-16 min-h-[80vh]    `} ref={aboutRefNO}>
+    <div className={` md:mb-16 min-h-[80vh] scroll-mt-20   `} ref={aboutRefNO}>
       {/*  */}
       <div id='about' className=" md:flex md:justify-evenly snap-start   " ref={aboutRefNO}>
 
@@ -374,7 +387,7 @@ const Home = () => {
    
 
       {/* Projects */}
-      <div id='projects' ref={projectsRefNO} className={` md:justify-evenly  border-b border-white/35 pb-4  min-h-[80vh]`}>
+      <div id='projects' ref={projectsRefNO} className={` md:justify-evenly  border-b border-white/35 pb-4  min-h-[80vh] scroll-mt-20`}>
 
               {/* Project Title */}
         <div className='md:flex md:justify-evenly'>
@@ -401,22 +414,15 @@ const Home = () => {
                   style={{ animationDelay: `${0.3}s` }} 
                   sx={{ "&:hover": { color: "blue",scale:"1.25" }, }}/>
                  */}
+                <GlobalIcon>
 
                 <EmailIcon
-                  className={`${projectIsVisable ? 'animate-loadIn' : ''} opacity-0`}
+                  className={`opacity-0 ${projectIsVisable ? 'animate-loadIn' : ''} `}
                   style={{ animationDelay: `${0.3}s` }}
-                  sx={{
-                    color: "white",
-                    opacity: 0.5,
-                    borderRadius: "4px", // Equivalent to `rounded-md`
-                    transition: "color 0.3s ease-in-out, transform 0.3s ease-in-out",
-                    "&:hover": {
-                      color: "blue",
-                      transform: "scale(1.25)",
-                    },
-                  }}
-                />
+                
+                      />
 
+                      </GlobalIcon>
                 </a>
 
             </div>
@@ -460,12 +466,13 @@ const Home = () => {
       <div id='contact' ref={contactRefNO} className="w-fit mx-auto md:justify-center my-16  md:mt-72  snap-start  min-h-[40vh]  ">
 
         <div ref={contactRef} className={`md:pl-4    md:w-1/3  opacity-0 ${contactInView ? ' animate-slide-in ' : ''} `}>
-          <h1 className="text-3xl font-bold">Contact </h1>
+          <h1 className="text-5xl font-bold mb-2">Contact </h1>
         </div>
 
 
         <div className="md:w-fit md:px-4 
         rounded-md
+        bg-gray-600/[.1]
          hover:bg-gray-500/[0.1] 
            ease-in-out 
            duration-300  
@@ -481,11 +488,15 @@ const Home = () => {
               >
 
           <div className={` opacity-0 ${contactInView  ? '  animate-loadIn ' : ''  }`}>
-            <h1 className='font-semibold text-white/[.8] text-lg w-fit text-yellow-200 '>
+            <h1 className='font-semibold text-white/[.8] flex text-md w-fit text-yellow-200 '>
 
 
               Get in touch, and drop a message.
-              <KeyboardArrowRightIcon fontSize="small" className="group-hover:translate-x-4 transition ease-in-out duration-300"/>
+              <GlobalArrow>
+
+                <KeyboardArrowRightIcon fontSize="small"
+                 />
+              </GlobalArrow>
 
 
             </h1>
@@ -499,16 +510,22 @@ const Home = () => {
           </div>
              </a>
 
-             <div className={`flex space-x-2 mt-4  text-white/[.5]`}>
+             <div className={`flex pb-4  space-x-2 mt-4  border-white/[0.5] text-white/[.5]
+              `}>
 
               <a href='mailto:jinfcabia@gmail.com' 
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <EmailIcon  className={`hover:scale-125 opacity-0  hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md  ${contactInView ? 'animate-loadIn' : ''} `}
-                
-                // style={{ animationDelay: `${1.}s` }} 
-                />
+                <GlobalIcon>
+
+                  <EmailIcon  
+                  // className='hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md animate-loadIn opacity-0 '
+                  
+                  
+                  // style={{ animationDelay: `${0.9}s` }} 
+                  />
+                </GlobalIcon>
               
 
               </a>
@@ -518,10 +535,13 @@ const Home = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               >
-                <LinkedInIcon  className={`hover:scale-125 opacity-0   hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md  ${contactInView ? 'animate-loadIn' : ''} `}
-                
-                                // style={{ animationDelay: `${1.}s` }} 
+                <GlobalIcon>
+
+                <LinkedInIcon 
+                // className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-yellow-200 animate-loadIn opacity-0  '
+                // style={{ animationDelay: `${1.2}s` }} 
                 />
+                </GlobalIcon>
 
               </a>
 
@@ -532,19 +552,20 @@ const Home = () => {
               rel="noopener noreferrer" 
               >
 
-              <GitHubIcon
-                className={` duration-300 transition ease-in-out hover:scale-125 hover:cursor-pointer hover:text-yellow-200 text-white/[.5] `}
-                // opacity-0 ${contactInView ? 'animate-loadIn' : ''}
-                // style={{ animationDelay: '1.0s' }}
-              >
-              </GitHubIcon>
+              <GlobalIcon>
+
+              <GitHubIcon 
+              // className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-yellow-200 animate-loadIn opacity-0 '
+              // style={{ animationDelay: `${1.5}s` }} 
+              />
+              </GlobalIcon>
 
               </a>
 
 
 
             </div>
-          
+
           
         
         </div>

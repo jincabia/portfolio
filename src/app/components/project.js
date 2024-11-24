@@ -2,20 +2,28 @@ import Image from "next/image";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import LinkIcon from '@mui/icons-material/Link';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import GlobalIcon from "./wrapper";
+import GlobalArrow from "./arrow-wrapper";
+
 
 export default function Project({ name, date, description, path, link, github }) {
     return (
-        <div className="bg-gray-500/[0.2] md:bg-gray-600/[.1] text-[#ECDFCC]/[.6] text-sm p-4 hover:scale-105 cursor-pointer hover:bg-gray-500/[.1] transition ease-in-out duration-300 rounded-md group">
+        <div className="group bg-gray-500/[0.2] md:bg-gray-600/[.1] text-[#ECDFCC]/[.6] text-sm p-4 hover:scale-105 cursor-pointer hover:bg-gray-500/[.1] transition ease-in-out duration-300 rounded-md ">
 
           
             <a href={link || github} target="_blank" rel="noopener noreferrer">
                 <div className="md:grid grid-rows-3 grid-flow-col space">
                     {/* Name */}
-                    <div className="col-span-2 font-semibold text-yellow-200 text-lg">
+                    {/* Need to implement a hover using MUI to make group hover work here */}
+                    <div className="col-span-2 flex font-semibold text-yellow-200 text-lg">
                         {name}
-                        <KeyboardArrowRightIcon fontSize="small" className="group-hover:translate-x-8 transition ease-in-out duration-300" />
+                        <GlobalArrow>
+                            <KeyboardArrowRightIcon fontSize="small" 
+                        // className="group-hover:translate-x-8 transition ease-in-out duration-300" 
+                        />
+                        </GlobalArrow>
                         
-                    </div>
+                    </div>  
 
                     <div className=" col-span-2 row-span-2 flex text-ellipsis">
                         {description}
@@ -42,7 +50,11 @@ export default function Project({ name, date, description, path, link, github })
                         rel="noopener noreferrer"
                         className=""
                     >
-                        <LinkIcon className="hover:scale-125 hover:text-yellow-200 transition-transform ease-in-out duration-300" />
+                        
+                        <GlobalIcon>
+
+                            <LinkIcon/>
+                        </GlobalIcon>
                     </a>
                 )}
 
@@ -52,7 +64,10 @@ export default function Project({ name, date, description, path, link, github })
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <GitHubIcon className="hover:scale-125 hover:text-yellow-200 transition-transform ease-in-out duration-300" />
+                        <GlobalIcon>
+
+                            <GitHubIcon />
+                        </GlobalIcon>
                     </a>
                 )}
             </div>
