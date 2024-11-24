@@ -19,6 +19,7 @@ module.exports = {
     'opacity-100',
     'translate-y-0',
     'translate-y-10',
+    'hover:',
     "hover:scale-125",
     "hover:cursor-pointer",
     "hover:text-yellow-200",

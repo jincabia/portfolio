@@ -14,6 +14,7 @@ export default function Project({ name, date, description, path, link, github })
                     <div className="col-span-2 font-semibold text-yellow-200 text-lg">
                         {name}
                         <KeyboardArrowRightIcon fontSize="small" className="group-hover:translate-x-8 transition ease-in-out duration-300" />
+                        
                     </div>
 
                     <div className=" col-span-2 row-span-2 flex text-ellipsis">

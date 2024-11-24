@@ -102,13 +102,13 @@ const Home = () => {
 ]
 
   return (
-    <main id='' className=" pt-14 snap-mandatory snap-y h-screen   ">
+    <main id='' className=" pt-14     ">
 
     <VerticalNavBar activeSection={activeSection}/>
 
     
      {/* Intro */} 
-    <div id='intro' ref={introRef} className="md:flex md:justify-center md:pb-32 md:pt-16 snap-start  h-fit mb-64 md:space-x-4 " >
+    <div id='intro' ref={introRef} className="md:flex md:justify-center md:pb-32 md:pt-16 md:mb-16 snap-start  h-fit  md:space-x-4 " >
 
         {/* Intro  */}
 
@@ -214,7 +214,7 @@ const Home = () => {
 
       {/* About me Section */}
 
-    <div className={` md:mb-64 min-h-[80vh]    `} ref={aboutRefNO}>
+    <div className={` md:mb-16 min-h-[80vh]    `} ref={aboutRefNO}>
       {/*  */}
       <div id='about' className=" md:flex md:justify-evenly snap-start   " ref={aboutRefNO}>
 
@@ -395,11 +395,28 @@ const Home = () => {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 >
-                  <EmailIcon  className={`hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md ${projectIsVisable ? 'animate-loadIn' : ''} opacity-0`}
+{/*                   
+                  <EmailIcon  className={` hover:cursor-pointer transition ease-in-out text-white/[.5]  rounded-md ${projectIsVisable ? 'animate-loadIn' : ''} opacity-0`}
                   
                   style={{ animationDelay: `${0.3}s` }} 
-  />
-                
+                  sx={{ "&:hover": { color: "blue",scale:"1.25" }, }}/>
+                 */}
+
+                <EmailIcon
+                  className={`${projectIsVisable ? 'animate-loadIn' : ''} opacity-0`}
+                  style={{ animationDelay: `${0.3}s` }}
+                  sx={{
+                    color: "white",
+                    opacity: 0.5,
+                    borderRadius: "4px", // Equivalent to `rounded-md`
+                    transition: "color 0.3s ease-in-out, transform 0.3s ease-in-out",
+                    "&:hover": {
+                      color: "blue",
+                      transform: "scale(1.25)",
+                    },
+                  }}
+                />
+
                 </a>
 
             </div>
@@ -442,9 +459,8 @@ const Home = () => {
       
       <div id='contact' ref={contactRefNO} className="w-fit mx-auto md:justify-center my-16  md:mt-72  snap-start  min-h-[40vh]  ">
 
-        <div ref={contactRef} className={`md:pl-4    md:w-1/3   ${contactInView ? ' animate-slide-in ' : 'opacity-0'} `}>
-        {/* translate-x-[-20px] */}
-          <h1 className="text-3xl font-bold">Contact</h1>
+        <div ref={contactRef} className={`md:pl-4    md:w-1/3  opacity-0 ${contactInView ? ' animate-slide-in ' : ''} `}>
+          <h1 className="text-3xl font-bold">Contact </h1>
         </div>
 
 
@@ -483,9 +499,7 @@ const Home = () => {
           </div>
              </a>
 
-             <div className={`flex   space-x-2 mt-4  text-white/[.5] 
-              ${aboutInView ? '' : ''}
-              `}>
+             <div className={`flex space-x-2 mt-4  text-white/[.5]`}>
 
               <a href='mailto:jinfcabia@gmail.com' 
               target="_blank" 
@@ -519,10 +533,11 @@ const Home = () => {
               >
 
               <GitHubIcon
-                className={` duration-300 transition ease-in-out hover:scale-125 hover:cursor-pointer hover:text-yellow-200 text-white/[.5] rounded-md`}
+                className={` duration-300 transition ease-in-out hover:scale-125 hover:cursor-pointer hover:text-yellow-200 text-white/[.5] `}
                 // opacity-0 ${contactInView ? 'animate-loadIn' : ''}
                 // style={{ animationDelay: '1.0s' }}
-              />
+              >
+              </GitHubIcon>
 
               </a>
 
@@ -539,16 +554,7 @@ const Home = () => {
 
       {/* Footer  */}
       <footer className='w-1/2 mx-auto mb-16 text-sm text-white/[.4]'> 
-        <div className={` opacity-0 ${contactInView ? 'animate-loadIn' : ''}`}>
-          <a
-           href="https://github.com/jincabia" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-          >
-
-          <p className={`opacity-0 hover:scale-125 bg-slate-400 transition ease-in-out duration-300 hover:bg-red-500  ${contactInView ? 'animate-loadIn' : ''}`}>HOVER ME</p>
-          </a>
-        </div>
+       
 
        
         <p>Made by Jin, built with Next.js, Tailwind CSS and deployed using Vercel</p>
