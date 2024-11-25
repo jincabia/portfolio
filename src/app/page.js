@@ -23,23 +23,23 @@ const Home = () => {
 
   const { ref: introRef, inView: introInView } = useInView({ triggerOnce: true,
 
-    rootMargin: "-20% 0px", // Adjust this margin to control trigger distance
+    rootMargin: "-50% 0px", // Adjust this margin to control trigger distance
    });
 
   
   const { ref: aboutRef, inView: aboutInView } = useInView({ triggerOnce: true,
 
-    rootMargin: "-20% 0px", // Adjust this margin to control trigger distance
+    rootMargin: "-40% 0px", // Adjust this margin to control trigger distance
    });
   
   const {ref:projectsRef, inView : projectIsVisable} = useInView({ triggerOnce: true,
 
-    rootMargin: "-20% 0px", // Adjust this margin to control trigger distance
+    rootMargin: "-50% 0px", // Adjust this margin to control trigger distance
    });
   
   const { ref: contactRef, inView: contactInView } = useInView({ triggerOnce: true,
 
-    rootMargin: "-20% 0px", // Adjust this margin to control trigger distance
+    rootMargin: "-50% 0px", // Adjust this margin to control trigger distance
    });
 
 
@@ -110,7 +110,7 @@ const Home = () => {
 
     
      {/* Intro */} 
-    <div id='intro' ref={introRef} className="md:flex md:justify-center md:pb-32 md:pt-16 md:mb-16 snap-start  h-fit  md:space-x-4 mb-1/4 scroll-mt-20 " >
+    <div id='intro' ref={introRef} className="md:flex md:justify-center md:pb-32 md:pt-16 md:mb-32 snap-start  h-fit  md:space-x-4 mb-1/4  " >
 
         {/* Intro  */}
 
@@ -227,7 +227,7 @@ const Home = () => {
 
       {/* About me Section */}
 
-    <div className={` md:mb-16 min-h-[80vh] scroll-mt-20   `} ref={aboutRefNO}>
+    <div className={` md:mb-16 min-h-[80vh]    `} ref={aboutRefNO}>
       {/*  */}
       <div id='about' className=" md:flex md:justify-evenly snap-start   " ref={aboutRefNO}>
 
@@ -387,7 +387,7 @@ const Home = () => {
    
 
       {/* Projects */}
-      <div id='projects' ref={projectsRefNO} className={` md:justify-evenly  border-b border-white/35 pb-4  min-h-[80vh] scroll-mt-20`}>
+      <div id='projects' ref={projectsRefNO} className={` md:justify-evenly  border-b border-white/35 pb-4  min-h-[80vh] `}>
 
               {/* Project Title */}
         <div className='md:flex md:justify-evenly'>
@@ -395,7 +395,7 @@ const Home = () => {
           <div 
           ref={projectsRef}
           // style={{ animationDelay: `${0.2}s` }}
-          className={`  pt-4  md:w-1/3 opacity-0  ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
+          className={`  pt-4  md:w-1/4 opacity-0  ${projectIsVisable ? ' translate-x-[-20px] animate-slide-in ' : ''} `}>
             <h1 className={`text-3xl font-bold  `}>Projects</h1>
 
             <p className="flex items-center text-[#ECDFCC]/60 text-sm ">
@@ -473,11 +473,12 @@ const Home = () => {
         <div className="md:w-fit md:px-4 
         rounded-md
         bg-gray-600/[.1]
-         hover:bg-gray-500/[0.1] 
+         hover:bg-gray-400/[0.1] 
            ease-in-out 
            duration-300  
            group
            h-fit
+           hover:scale-105
 
            py-4
            ">
