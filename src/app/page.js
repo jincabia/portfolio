@@ -110,7 +110,7 @@ const Home = () => {
 
     
      {/* Intro */} 
-    <div id='intro' ref={introRef} className="md:flex md:justify-center md:pb-48 md:pt-16 md:mb-32 snap-start  h-fit  md:space-x-4 mb-1/4  " >
+    <div id='intro' ref={introRef} className="md:flex md:justify-center md:pb-48 md:pt-16 md:mb-56 snap-start  h-fit  md:space-x-4 mb-1/4  " >
 
         {/* Intro  */}
 
@@ -387,7 +387,7 @@ const Home = () => {
    
 
       {/* Projects */}
-      <div id='projects' ref={projectsRefNO} className={` md:justify-evenly  border-b border-white/35   min-h-[80vh] `}>
+      <div id='projects' ref={projectsRefNO} className={` md:justify-evenly  border-b border-white/35 md:mb-32  min-h-[80vh] `}>
 
               {/* Project Title */}
         <div className='md:flex md:justify-evenly'>
