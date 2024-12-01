@@ -39,7 +39,7 @@ const Home = () => {
   
   const { ref: contactRef, inView: contactInView } = useInView({ triggerOnce: true,
 
-    rootMargin: "-50% 0px", // Adjust this margin to control trigger distance
+    // rootMargin: "-20% 0px", // Adjust this margin to control trigger distance
    });
 
 
@@ -110,7 +110,7 @@ const Home = () => {
 
     
      {/* Intro */} 
-    <div id='intro' ref={introRef} className="md:flex md:justify-center md:pb-32 md:pt-16 md:mb-32 snap-start  h-fit  md:space-x-4 mb-1/4  " >
+    <div id='intro' ref={introRef} className="md:flex md:justify-center md:pb-48 md:pt-16 md:mb-32 snap-start  h-fit  md:space-x-4 mb-1/4  " >
 
         {/* Intro  */}
 
@@ -387,7 +387,7 @@ const Home = () => {
    
 
       {/* Projects */}
-      <div id='projects' ref={projectsRefNO} className={` md:justify-evenly  border-b border-white/35 pb-4  min-h-[80vh] `}>
+      <div id='projects' ref={projectsRefNO} className={` md:justify-evenly  border-b border-white/35   min-h-[80vh] `}>
 
               {/* Project Title */}
         <div className='md:flex md:justify-evenly'>
@@ -463,7 +463,7 @@ const Home = () => {
 
       {/* Contact */}
       
-      <div id='contact' ref={contactRefNO} className="w-fit mx-auto md:justify-center my-16  md:mt-72  snap-start  min-h-[40vh]  ">
+      <div id='contact' ref={contactRefNO} className="w-fit mx-auto md:justify-center my-16  md:mt-96  snap-start  min-h-[40vh]  ">
 
         <div ref={contactRef} className={`md:pl-4    md:w-1/3  opacity-0 ${contactInView ? ' animate-slide-in ' : ''} `}>
           <h1 className="text-5xl font-bold mb-2">Contact </h1>
