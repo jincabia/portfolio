@@ -1,53 +1,59 @@
 'use client'
+import { useState } from 'react';
 import React from 'react';
 import { usePathname } from 'next/navigation'
 import StreamIcon from '@mui/icons-material/Stream';
 import Image from 'next/image';
+import NavOption from './nav/navbar-option';
+import ApiIcon from '@mui/icons-material/Api';
 
 
+import PortraitIcon from '@mui/icons-material/Portrait'; //about me 
+import BrushIcon from '@mui/icons-material/Brush'; // project
+import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled'; // contact me
+
+
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+
+import GlobalIcon from './wrapper';
 const VerticalNavBar = ({ activeSection }) => {
 
-  // const [path,setPath] = useState(usePathname())
+  const [expanded,setExpanded] = useState(false)
 
 
   const navItems = [
-    {name: 'Intro',path :'#intro', section: 'intro'},
-    { name: 'About', path: '#about', section: 'about' },
-    { name: 'Projects', path: '#projects', section: 'projects' },
-    { name: 'Contact', path: '#contact', section: 'contact' },
+    {name: 'Intro',path :'#intro', section: 'intro',icon: <PortraitIcon fontSize='medium'/>},
+    // { name: 'About', path: '#about', section: 'about',icon: <PortraitIcon fontSize='medium'/> },
+    { name: 'Projects', path: '#projects', section: 'projects',icon: <BrushIcon fontSize='medium'/> },
+    { name: 'Contact', path: '#contact', section: 'contact',icon: <PhoneEnabledIcon fontSize='medium'/> },
   ];
 
   return (
-    <div className="hidden lg:flex fixed top-0 left-0 flex-col h-screen  w-44 bg-[#373832] text-white   ">
-      <div className='flex justify-center pt-16 font-semibold    mx-auto'>
-        <Image
-        src={'/jicon.png'}
-        width={40}
-        height={40}
-        alt='Icon'
-        className=' '
-        />
+    <div className={`hidden lg:flex fixed top-0 left-0 flex-col h-screen ${expanded === true ? ' w-32 ' : 'w-16'}  bg-[#373832] text-white  duration-300 ease-in-out `}>
 
+     
+
+      <div className='flex text-center mx-auto mt-8 mb-4 '>
+        <ApiIcon fontSize='large'/>
+      </div>
+
+      <div className=' mb-6 border-white/[.3]'>
+
+      </div>
 
       
-      </div>
-      {/* <h2 className="text-xl font-semibold mb-4 pl-2">My Portfolio</h2> */}
-      <ul className="flex flex-col justify-center items-start  h-full translate-y-[-64px]  ">
+      <ul className="flex flex-col justify-center items-start divide-y divide-white/[.1] first:border-t last:border-b border-white/[.1]  ">
         {navItems.map((item) => (
-          <li key={item.name} className="w-full font-semibold">
-            <a href={item.path}>
-              <p className={`w-full py-2 pl-6 transition ease-in ${
-                activeSection === item.section
-                  ? 'text-yellow-200 bg-[#697565] '
-                  : 'text-white/[0.5]  hover:underline hover:text-yellow-200'
-              }`
-      }>
-                {item.name}
-              </p>
-            </a>
-          </li>
+          <NavOption key={item.name} item={item} icon={item.icon} expanded={expanded}/>
         ))}
       </ul>
+
+      <button className={`flex text-end items-end self-end w-min   bg-[#30302d]  rounded-full aspect-square mt-5 translate-x-3 duration-300 transition ease-in-out ${expanded === true ? 'rotate-180' : ''}`} onClick={()=>setExpanded(!expanded)}>
+        <GlobalIcon sx={{cursor:'pointer'}}>
+          <KeyboardArrowRightIcon />
+        </GlobalIcon>
+      </button>
+
     </div>
   );
 };

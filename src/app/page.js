@@ -8,6 +8,13 @@ import Image from 'next/image';
 import GlobalIcon from './components/wrapper';
 import GlobalArrow from './components/arrow-wrapper';
 
+import Intro from './components/intro';
+
+// TODO
+/**
+ * Replace the plain text with icons, maybe add some interactivity?
+ * 
+ */
 
 
 import { useInView } from 'react-intersection-observer';
@@ -51,7 +58,7 @@ const Home = () => {
   const { ref: contactRefNO, inView: contactInViewNO } = useInView();
 
 
-  const [activeSection, setActiveSection] = useState('intro');
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     if(introInViewNO) setActiveSection('intro')
@@ -62,7 +69,7 @@ const Home = () => {
     // if (contactInView) setActiveSection('contact');
      if (projectIsVisableNO) setActiveSection('projects');
     // else if (projectIsVisableNO) setActiveSection('projects');
-  }, [introInViewNO, aboutInViewNO, projectIsVisableNO, contactInViewNO]);
+  }, []);
 
   const intro = ['Hello,','Im']
 
@@ -109,125 +116,16 @@ const Home = () => {
     <VerticalNavBar activeSection={activeSection}/>
 
     
-     {/* Intro */} 
-    <div id='intro' ref={introRef} className="md:flex md:justify-center md:pb-48 md:pt-16 md:mb-56 snap-start  h-fit  md:space-x-4 mb-1/4  " >
-
-        {/* Intro  */}
-
-        <div   className=' border   w-fit   md:-translate-x-4 md:translate-y-4  mb-10 md:mb-0  md:pt-0
-              '>
-          <Image
-          src={"/swagcropped.jpg"}
-          width={300}
-          height={300}
-          alt='Jins Photo'
-          className=' grayscale-[60%] hover:grayscale-0  duration-300 translate-x-4 -translate-y-4 ease-in-out hover:scale-[1.02]' 
-          quality={100}
-          priority={true}
-          />
-
-        </div>
-
-
-        <div 
-        
-          className={`  sm:w-full md:w-1/3 pb-4 md:pb-0 md:p-4  md:pt-0`}>
-
-          <p className={` font-semibold text-white/[.75] text-sm }
-          `}>
-              {intro.map((word, index) => (
-                <span
-                  key={index}
-                  className="inline-block animate-slide-down opacity-0"
-                  style={{ animationDelay: `${index * 0.5}s` }} 
-                >
-                  {word}&nbsp; {/* Adding space between words */}
-                </span>
-              ))}
-          </p>
-
-
-          <div
-           style={{ animationDelay: `${.9}s` }}
-          className={` opacity-0  translate-x-[-20px] animate-slide-in  `}>
-            <h1 className="text-3xl font-bold text-yellow-200  ">Jin Francis Cabia</h1>
-            <p className="text-white/[.75] font-semibold text-sm " >Recent Software Graduate</p>
-           
-            <p className="flex items-center text-[#ECDFCC]/60 text-sm md:pt-4">
-              I think codings cool.
-            </p>
-
-        
-            {/* Links to Email, Github,  Linkedin */}
-            <div className={`flex pb-4 pt-4 space-x-2 mt-4 border-t border-white/[0.5] text-white/[.5]
-              `}>
-
-              <a href='mailto:jinfcabia@gmail.com' 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              >
-                <GlobalIcon>
-
-                  <EmailIcon  
-                  // className='hover:scale-125 hover:cursor-pointer transition ease-in-out text-white/[.5] hover:text-yellow-200 rounded-md animate-loadIn opacity-0 '
-                  
-                  
-                  // style={{ animationDelay: `${0.9}s` }} 
-                  />
-                </GlobalIcon>
-              
-
-              </a>
-
-              <a
-              href="https://www.linkedin.com/in/jin-francis-cabia/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              >
-                <GlobalIcon>
-
-                <LinkedInIcon 
-                // className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-yellow-200 animate-loadIn opacity-0  '
-                // style={{ animationDelay: `${1.2}s` }} 
-                />
-                </GlobalIcon>
-
-              </a>
-
-
-              <a
-              href="https://github.com/jincabia" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              >
-
-              <GlobalIcon>
-
-              <GitHubIcon 
-              // className='hover:scale-125 hover:cursor-pointer transition ease-in-out  hover:text-yellow-200 animate-loadIn opacity-0 '
-              // style={{ animationDelay: `${1.5}s` }} 
-              />
-              </GlobalIcon>
-
-              </a>
-
-
-
-            </div>
-
-          </div>
-
-        </div>
-
-    </div>
-
+     {/* Intro  */}
+     
+     <Intro intro={intro} />
 
 
 
 
       {/* About me Section */}
 
-    <div className={` md:mb-16 min-h-[80vh]    `} ref={aboutRefNO}>
+    <div className={` md:mb-52  border    `} ref={aboutRefNO}>
       {/*  */}
       <div id='about' className=" md:flex md:justify-evenly snap-start   " ref={aboutRefNO}>
 
@@ -339,9 +237,26 @@ const Home = () => {
                       Tailwind
                     </li>
 
-                    <li className=''>
-                      HTML / CSS
-                    </li>
+
+                    <div className='flex'>
+
+                  {/* HTML LOGO */}
+                    <svg className='' xmlns="http://www.w3.org/2000/svg"
+                        width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  stroke-linecap="round"  stroke-linejoin="round"  
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-file-type-html">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4" />
+                      <path d="M2 21v-6" /><path d="M5 15v6" /><path d="M2 18h3" /><path d="M20 15v6h2" /><path d="M13 21v-6l2 3l2 -3v6" /><path d="M7.5 15h3" /><path d="M9 15v6" />
+                    </svg>
+                    {/* CSS LOGO*/}
+                    <svg  xmlns="http://www.w3.org/2000/svg" 
+                      width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  
+                      class="icon icon-tabler icons-tabler-outline icon-tabler-file-type-css"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                      <path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4" /><path d="M8 16.5a1.5 1.5 0 0 0 -3 0v3a1.5 1.5 0 0 0 3 0" />
+                      <path d="M11 20.25c0 .414 .336 .75 .75 .75h1.25a1 1 0 0 0 1 -1v-1a1 1 0 0 0 -1 -1h-1a1 1 0 0 1 -1 -1v-1a1 1 0 0 1 1 -1h1.25a.75 .75 0 0 1 .75 .75" />
+                      <path d="M17 20.25c0 .414 .336 .75 .75 .75h1.25a1 1 0 0 0 1 -1v-1a1 1 0 0 0 -1 -1h-1a1 1 0 0 1 -1 -1v-1a1 1 0 0 1 1 -1h1.25a.75 .75 0 0 1 .75 .75" />
+                    </svg>
+                    </div>
+                    
                   </ul>
 
                   <h1 className='text-[#ECDFCC] font-semibold'>

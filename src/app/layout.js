@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
         
         `}
       >
-        <main className="flex-1 p-5  min-h-screen sm:ml-0 lg:ml-44">{children}</main>
+        <main className="flex-1 p-5  min-h-screen sm:ml-0 lg:ml-32">{children}</main>
       </body>
     </html>
   );
