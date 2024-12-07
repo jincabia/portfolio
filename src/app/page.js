@@ -108,35 +108,7 @@ const Home = () => {
     link: "",
     github:"https://github.com/jincabia/AI-Web-Scraper"
   },
-  {
-    name: "AI Web Scraper",
-    date: "2024",
-    description: "An AI Web Scraper using Selenium, Streamlit, BeautifulSoup, LangChain and Ollama3.1. Where we scrape data from a URL then pass it into Ollama3.1 to parse the data then return it. ",
-    path: "aiwebscraper.png",
-    link: "",
-    github:"https://github.com/jincabia/AI-Web-Scraper"
-  },
-  {
-    name: "AI Web Scraper",
-    date: "2024",
-    description: "An AI Web Scraper using Selenium, Streamlit, BeautifulSoup, LangChain and Ollama3.1. Where we scrape data from a URL then pass it into Ollama3.1 to parse the data then return it. ",
-    path: "aiwebscraper.png",
-    link: "",
-    github:"https://github.com/jincabia/AI-Web-Scraper"
-  },
-  {
-    name: "AI Web Scraper",
-    date: "2024",
-    description: "An AI Web Scraper using Selenium, Streamlit, BeautifulSoup, LangChain and Ollama3.1. Where we scrape data from a URL then pass it into Ollama3.1 to parse the data then return it. ",
-    path: "aiwebscraper.png",
-    link: "",
-    github:"https://github.com/jincabia/AI-Web-Scraper"
-  },
-  
-
-
-
-
+ 
 ]
 
   return (
@@ -209,7 +181,7 @@ const Home = () => {
         </div>
 
 
-        <div className={` w-full md:grid space-y-4 pt-0 md:pt-4 md:space-y-0  md:grid-cols-3 2xl:grid-cols-5  gap-8 `} >
+        <div className={` w-full md:grid space-y-4 pt-0 md:pt-4 md:space-y-0  md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5  gap-8 `} >
 
 
       
