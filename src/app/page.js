@@ -182,7 +182,7 @@ const Home = () => {
         </div>
 
 
-        <div className={` w-full md:grid space-y-4 pt-0 md:pt-4 md:space-y-0  md:grid-cols-3 2xl:grid-cols-4  gap-32 `} >
+        <div className={` w-full md:grid space-y-4 pt-0 md:pt-4 md:space-y-0  md:grid-cols-3 2xl:grid-cols-4  gap-8 `} >
 
 
       
