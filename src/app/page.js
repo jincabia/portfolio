@@ -77,16 +77,19 @@ const Home = () => {
   
 
   
-    useEffect(() => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
       scrollToTop();
-    }, []);
+    }, 100); // Adjust the delay if needed
+    return () => clearTimeout(timer); // Cleanup on unmount
+  }, []);
   
-    const scrollToTop = () => {
-      window.scrollTo({
-        top: 0,
-        // behavior: 'smooth',
-      });
-    };
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      // behavior: 'smooth', // Uncomment this to enable smooth scrolling
+    });
+  };
 
 
   const projects = [{
@@ -96,6 +99,22 @@ const Home = () => {
     path: "gongcha.png",
     link: "https://gongcha-shawnessy.vercel.app/",
     github:"https://github.com/jincabia/gong-cha-shawnessy"
+  },
+  {
+    name: "AI Web Scraper",
+    date: "2024",
+    description: "An AI Web Scraper using Selenium, Streamlit, BeautifulSoup, LangChain and Ollama3.1. Where we scrape data from a URL then pass it into Ollama3.1 to parse the data then return it. ",
+    path: "aiwebscraper.png",
+    link: "",
+    github:"https://github.com/jincabia/AI-Web-Scraper"
+  },
+  {
+    name: "AI Web Scraper",
+    date: "2024",
+    description: "An AI Web Scraper using Selenium, Streamlit, BeautifulSoup, LangChain and Ollama3.1. Where we scrape data from a URL then pass it into Ollama3.1 to parse the data then return it. ",
+    path: "aiwebscraper.png",
+    link: "",
+    github:"https://github.com/jincabia/AI-Web-Scraper"
   },
   {
     name: "AI Web Scraper",
