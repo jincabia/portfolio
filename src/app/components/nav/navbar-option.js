@@ -1,15 +1,15 @@
 
 export default function NavOption({ item, active, icon, expanded }) {
   return (
-    <li key={item.name} className="w-full  font-semibold">
+    <li key={item.name} className="w-full  font-semibold group">
       <a href={item.path}>
 
       <span className={`flex items-center ${expanded === true ? "group ml-2 " : ""}`}>
             <p
               className={`
                 
-                w-min  py-6 transition ease-in text-center  text-white/[0.5] 
-                ${ expanded === true ? " group-hover:text-yellow-200 ml-2 " : "hover:text-yellow-200 mx-auto duration-150  scale-90"} `
+                w-min  py-6 transition ease-in text-center  text-white/[0.5] group-hover:text-yellow-200
+                ${ expanded === true ? "  ml-2 " : " mx-auto duration-150  scale-90"} `
             }
             >
               {icon}

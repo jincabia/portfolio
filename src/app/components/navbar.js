@@ -48,7 +48,7 @@ const VerticalNavBar = ({ activeSection }) => {
         ))}
       </ul>
 
-      <button className={`flex text-end items-end self-end w-min   bg-[#30302d]  rounded-full aspect-square mt-5 translate-x-3 duration-300 transition ease-in-out ${expanded === true ? 'rotate-180' : ''}`} onClick={()=>setExpanded(!expanded)}>
+      <button className={`flex text-end items-end self-end w-min 2xl:mt-16  bg-[#30302d]  rounded-full aspect-square mt-5 translate-x-3 duration-300 transition ease-in-out ${expanded === true ? 'rotate-180' : ''}`} onClick={()=>setExpanded(!expanded)}>
         <GlobalIcon sx={{cursor:'pointer'}}>
           <KeyboardArrowRightIcon />
         </GlobalIcon>
