@@ -8,7 +8,7 @@ import GlobalArrow from "./arrow-wrapper";
 
 export default function Project({ name, date, description, path, link, github }) {
     return (
-        <div className="group bg-gray-500/[0.2] md:bg-gray-600/[.1] text-[#ECDFCC]/[.6] text-sm p-4 hover:scale-105 cursor-pointer hover:bg-gray-400/[.1] transition ease-in-out duration-300 rounded-md ">
+        <div className="group  sm:w-1/2 md:w-full bg-gray-500/[0.2] md:bg-gray-600/[.1]  text-[#ECDFCC]/[.6] text-sm p-4 sm:mb-4 md:mb-0 hover:scale-105 cursor-pointer hover:bg-gray-400/[.1] transition ease-in-out duration-300 rounded-md ">
 
           
             <a href={link || github} target="_blank" rel="noopener noreferrer">
@@ -25,7 +25,7 @@ export default function Project({ name, date, description, path, link, github })
                         
                     </div>  
 
-                    <div className=" col-span-2 row-span-2 flex text-ellipsis">
+                    <div className=" col-span-2 row-span-2 flex text-ellipsis ">
                         {description}
                     </div>
                 </div>
