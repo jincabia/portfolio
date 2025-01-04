@@ -107,7 +107,8 @@ const Home = () => {
     path: "aiwebscraper.png",
     link: "",
     github:"https://github.com/jincabia/AI-Web-Scraper"
-  },
+  }
+  
  
 ]
 
@@ -181,14 +182,14 @@ const Home = () => {
         </div>
 
 
-        <div className={` w-full md:grid space-y-4 pt-0 md:pt-4 md:space-y-0  md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5  gap-8 `} >
+        <div className={` w-full gap-8 justify-center md:grid space-y-4 pt-0 md:pt-4 md:space-y-0  md:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-5  pb-2  `} >
 
 
       
 
         {projects.map((project,index)=>
             (
-              <li className={`list-none  opacity-0   ${projectIsVisable  ? '  animate-loadIn ' : ''  }`} key={index}
+              <li className={`list-none   opacity-0   ${projectIsVisable  ? '  animate-loadIn ' : ''  }`} key={index}
               style={{ animationDelay: `${index/2 + .2}s` }} 
 
               >
