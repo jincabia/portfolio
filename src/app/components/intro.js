@@ -12,11 +12,7 @@ export default function Intro({ introRef, intro }) {
   return (
     <div className="mb-16 md:pb-64">
       {/* Intro */}
-      <div
-        id="intro"
-        ref={introRef}
-        className="md:flex   md:justify-center  md:pt-16  snap-start    md:space-x-4   "
-      >
+      <div id="intro" ref={introRef} className="flex flex-col md:flex-row justify-center items-center md:space-x-4 md:pt-16 snap-start">
         {/* Intro  */}
 
         <div
@@ -35,7 +31,7 @@ export default function Intro({ introRef, intro }) {
           />
         </div>
 
-        <div className={`  sm:w-full md:w-1/3  md:px-4  `}>
+        <div className={`  sm:w-full md:w-1/3  md:px-4    md:py-2  md:rounded-md  `}>
           <p
             className={` font-semibold text-white/[.75] text-sm }
       `}
@@ -102,16 +98,14 @@ export default function Intro({ introRef, intro }) {
                 <div className="hover:scale-[1.02]  duration-300 ease-in-out   ">
                   <h1 className="font-semibold text-white/[.75] ">Technologies</h1>
 
-                  <div className="  text-sm text-[#ECDFCC]/[.8] bg-gray-500/[0.2] p-4 rounded-md">
+                  <div className="text-sm text-[#ECDFCC]/[.8] bg-gray-500/[0.2] p-4 rounded-md min-h-[50px]">
                     <IconCarousel/>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* <p className="flex items-center text-[#ECDFCC]/60 text-sm py-  ">
-              I think codings cool.
-            </p> */}
+          
 
             {/* Links to Email, Github,  Linkedin */}
             <div

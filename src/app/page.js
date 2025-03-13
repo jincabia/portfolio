@@ -71,7 +71,7 @@ const Home = () => {
     // else if (projectIsVisableNO) setActiveSection('projects');
   }, []);
 
-  const intro = ['Hello,','Im']
+  const intro = ['Hello!','Im']
 
 
   
@@ -91,7 +91,7 @@ const Home = () => {
     });
   };
 
-
+// For the description make sure the text is 5 lines long
   const projects = [{
     name: "Gong Cha Shawnessy Web App",
     date: "2023-2024",
@@ -110,7 +110,7 @@ const Home = () => {
   },
   {name:"NBA Stats Web App",
   date:"Work in Progress"
-  ,description:"A Web Application that scrapes and displays NBA player stats, this project focused on data visualization. Made using React.js, Tailwind CSS and hosted onto Vercel.",
+  ,description:"A Web Application that scrapes and displays NBA player stats, made to streamline the research process,this project focused on data visualization. Made using React.js, Tailwind CSS and hosted onto Vercel.",
   path:"nbastat.png",
   link:"https://nbafrontend.vercel.app/",
   github:"https://github.com/jincabia/nba"
@@ -328,7 +328,7 @@ const Home = () => {
 
 
       {/* Footer  */}
-      <footer className=' w-full md:w-1/2 mx-auto   mb-16 text-sm text-white/[.4]'> 
+      <footer className=' w-full md:w-1/4 mx-auto   mb-16 text-sm text-white/[.4]'> 
        
 
        
