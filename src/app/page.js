@@ -108,13 +108,8 @@ const Home = () => {
     link: "",
     github:"https://github.com/jincabia/AI-Web-Scraper"
   },
-  {name:"NBA Stats Web App",
-  date:"Work in Progress"
-  ,description:"A Web Application that scrapes and displays NBA player stats, made to streamline the research process,this project focused on data visualization. Made using React.js, Tailwind CSS and hosted onto Vercel.",
-  path:"nbastat.png",
-  link:"https://nbafrontend.vercel.app/",
-  github:"https://github.com/jincabia/nba"
-}
+  
+  
   
  
 ]
@@ -525,3 +520,11 @@ export default Home
 
 
 
+
+//     {name:"NBA Stats Web App",
+//   date:"Work in Progress"
+//   ,description:"A Web Application that scrapes and displays NBA player stats, made to streamline the research process,this project focused on data visualization. Made using React.js, Tailwind CSS and hosted onto Vercel.",
+//   path:"nbastat.png",
+//   link:"https://nbafrontend.vercel.app/",
+//   github:"https://github.com/jincabia/nba"
+// }
